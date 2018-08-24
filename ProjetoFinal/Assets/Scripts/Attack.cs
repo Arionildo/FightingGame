@@ -23,7 +23,7 @@ public class Attack : MonoBehaviour
         animator = GetComponent<Animator>();
         //currentCombo = new char[10];
         currentCombo = new Queue();
-        comboA = "TETA";
+        comboA = "EQE";
     }
 
     // Update is called once per frame
@@ -70,10 +70,14 @@ public class Attack : MonoBehaviour
         if (!isAttacking)
         {
             if (Input.GetKeyDown(KeyCode.Q))
+            {
                 animator.SetTrigger(EAnimations.ATTACK01.ToString());
+            }
 
             if (Input.GetKeyDown(KeyCode.E))
+            {
                 animator.SetTrigger(EAnimations.ATTACK02.ToString());
+            }
         }
     }
 
