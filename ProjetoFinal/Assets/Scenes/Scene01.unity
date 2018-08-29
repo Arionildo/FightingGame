@@ -276,6 +276,10 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1290888325806154, guid: 9cd07865bf0c1bf4eb3b827576662ee0, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9cd07865bf0c1bf4eb3b827576662ee0, type: 2}
   m_IsPrefabParent: 0
@@ -687,6 +691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8c6aeb6fe681944a8f434867fdef17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterCount: 0
 --- !u!1 &318644836
 GameObject:
   m_ObjectHideFlags: 0
@@ -2852,12 +2857,12 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 1.06
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 1, z: 0.12}
 --- !u!114 &2047493065
 MonoBehaviour:
   m_ObjectHideFlags: 0

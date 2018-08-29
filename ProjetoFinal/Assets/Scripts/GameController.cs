@@ -1,16 +1,36 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
-public class GameController : MonoBehaviour {
+public class GameController : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
+    public static GameController instance = null;
+    public int characterCount = 0;
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
+        InitGame();
+    }
+
+    void InitGame()
+    {
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            Character character = go.GetComponent<Character>();
+            instance.characterCount++;
+            character.id = instance.characterCount;
+        }
+
+    }
+
+    void Update()
+    {
+
+    }
 }

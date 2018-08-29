@@ -17,7 +17,9 @@ public class Character : MonoBehaviour {
     {
         if (other.tag.Equals("Weapon"))
         {
-            life -= other.GetComponent<Weapon>().damage;
+            Weapon weapon = other.GetComponent<Weapon>();
+            if (!id.Equals(weapon.owner.id))
+                life -= weapon.damage;
 
             //if ((life - other.GetComponent<Weapon>().damage) <= 0)
             //    Destroy(gameObject);
