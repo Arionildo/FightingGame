@@ -47,7 +47,7 @@ public class MovementThirdPerson : MonoBehaviour {
         Vector3 horizontalVelocity = controller.velocity;
         horizontalVelocity = new Vector3(controller.velocity.x, 0, controller.velocity.z);
         float horizontalSpeed = horizontalVelocity.magnitude;
-        float verticalSpeed = controller.velocity.y;
+        //float verticalSpeed = controller.velocity.y;
         currentSpeed = controller.velocity.magnitude;
 
         animator.SetBool("RUNNING", isRunning);

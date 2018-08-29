@@ -19,8 +19,8 @@ public class Character : MonoBehaviour {
         {
             life -= other.GetComponent<Weapon>().damage;
 
-            if ((life - other.GetComponent<Weapon>().damage) <= 0)
-                Destroy(gameObject);
+            //if ((life - other.GetComponent<Weapon>().damage) <= 0)
+            //    Destroy(gameObject);
         }
     }
 }
