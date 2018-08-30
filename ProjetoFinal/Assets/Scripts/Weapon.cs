@@ -14,6 +14,7 @@ public class Weapon : MonoBehaviour {
             owner = transform.root.GetComponent<Character>();
         }
 
+        Physics.IgnoreCollision(GetComponent<Collider>(), transform.root.GetComponent<Collider>());
     }
 	
 	// Update is called once per frame

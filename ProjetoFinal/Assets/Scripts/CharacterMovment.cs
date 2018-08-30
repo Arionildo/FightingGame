@@ -11,7 +11,7 @@ public class CharacterMovment : MonoBehaviour {
     public float gravity = 20.0F;
     private Vector3 moveDirection = Vector3.zero;
     private Animator animator;
-    private bool isRunning;
+    //private bool isRunning;
     private int hp = 100;
     public Text vida;
     public bool podeAtacar = false;
@@ -50,7 +50,7 @@ public class CharacterMovment : MonoBehaviour {
 
     private void UpdateStatus()
     {
-        isRunning = currentSpeed > 0;
+        //isRunning = currentSpeed > 0;
     }
 
     private void GetAttack()
