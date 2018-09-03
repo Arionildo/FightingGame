@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Attack : MonoBehaviour
+public class Attack1 : MonoBehaviour
 {
     private Animator animator;
     private bool isAttacking;
@@ -27,6 +27,8 @@ public class Attack : MonoBehaviour
         animator = GetComponent<Animator>();
         //currentCombo = new char[10];
         currentCombo = new Queue();
+        comboA = "+--";
+        comboB = "--+";
     }
 
     // Update is called once per frame
@@ -81,12 +83,12 @@ public class Attack : MonoBehaviour
     {
         if (!isAttacking)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.KeypadMinus))
             {
                 animator.SetTrigger(EAnimations.ATTACK01.ToString());
             }
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.KeypadPlus))
             {
                 animator.SetTrigger(EAnimations.ATTACK02.ToString());
             }

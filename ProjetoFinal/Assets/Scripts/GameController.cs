@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class GameController : MonoBehaviour
 {
@@ -31,6 +32,15 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        ClearSpecialSkills();
+    }
 
+    private void ClearSpecialSkills()
+    {
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Special"))
+        {
+            Debug.Log("Destroy: " + go.name);
+            Destroy(go, 1f);
+        }
     }
 }

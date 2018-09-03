@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,7 +18,19 @@ public class Character : MonoBehaviour {
 
     private void Update()
     {
-        lifeText.text = life.ToString();
+        UpdateLife();
+    }
+
+    private void UpdateLife()
+    {
+        if (life <= 0)
+        {
+            lifeText.text = "DEAD";
+            Destroy(gameObject);
+        } else
+        {
+            lifeText.text = life.ToString();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,22 +40,12 @@ public class Character : MonoBehaviour {
             Weapon weapon = other.GetComponent<Weapon>();
             if (!id.Equals(weapon.owner.id))
                 life -= weapon.damage;
-
-            if (life <= 0)
-            {
-                Destroy(gameObject);
-            }
         }
 
         if (other.tag.Equals("Special"))
         {
-            life -= 100;
-
-            if (life <= 0)
-            {
-                lifeText.text = "DEAD";
-                Destroy(gameObject);
-            }
+            Weapon weapon = other.GetComponent<Weapon>();
+            life -= weapon.damage;
         }
     }
 }

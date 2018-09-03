@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33307437356491934}
   - component: {fileID: 136818005451196152}
   - component: {fileID: 23624424052302620}
+  - component: {fileID: 114916867717329154}
   m_Layer: 0
   m_Name: RAY
   m_TagString: Special
@@ -83,6 +84,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1515362430584796}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114916867717329154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1515362430584796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97fe4a3b35e84104ab2b8c112837deca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 200
+  owner: {fileID: 0}
 --- !u!136 &136818005451196152
 CapsuleCollider:
   m_ObjectHideFlags: 1
