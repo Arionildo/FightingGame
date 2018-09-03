@@ -11,6 +11,10 @@ public class Attack : MonoBehaviour
     private float keyTimer;
     //public List<char> comboA = new List<char>{ 't', 'e', 't', 'a' };
     public string comboA;
+    public string comboB;
+    public Transform comboPlaceholder;
+    public GameObject explosion;
+    public GameObject ray;
 
     public const float maxKeyComboTimer = 2f;
     //public char[] currentCombo;
@@ -23,7 +27,8 @@ public class Attack : MonoBehaviour
         animator = GetComponent<Animator>();
         //currentCombo = new char[10];
         currentCombo = new Queue();
-        comboA = "EQE";
+        comboA = "EQQ";
+        comboB = "QQE";
     }
 
     // Update is called once per frame
@@ -32,6 +37,7 @@ public class Attack : MonoBehaviour
         UpdateStatus();
         GetCommand();
         UpdateKeyTimer();
+        ClearComboPlaceholder();
     }
 
     private void UpdateKeyTimer()
@@ -46,6 +52,15 @@ public class Attack : MonoBehaviour
                 //EXECUTA A ANIMAÇÃO DO COMBO E LIMPA OS COMANDOS DIGITADOS PRA EVITAR LOOP
                 Debug.Log("ComboA executado!");
                 currentCombo.Clear();
+                Instantiate(explosion, comboPlaceholder);
+            }
+
+            if (helperCurrentCombo.Contains(comboB))
+            {
+                //EXECUTA A ANIMAÇÃO DO COMBO E LIMPA OS COMANDOS DIGITADOS PRA EVITAR LOOP
+                Debug.Log("ComboB executado!");
+                currentCombo.Clear();
+                Instantiate(ray, comboPlaceholder);
             }
 
             if (keyTimer < 0.0f)
@@ -96,6 +111,15 @@ public class Attack : MonoBehaviour
             {
                 Debug.Log(ex.StackTrace);
             }
+        }
+    }
+
+    private void ClearComboPlaceholder()
+    {
+        foreach (Transform child in comboPlaceholder)
+        {
+            Debug.Log("Destroy: " + child.gameObject.name);
+            Destroy(child.gameObject, 3f);
         }
     }
 }
