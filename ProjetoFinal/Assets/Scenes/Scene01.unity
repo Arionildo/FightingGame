@@ -5610,8 +5610,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfcb4190268967344903be91b26cbe86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboA: 
-  comboB: 
+  comboA: EEQ
+  comboB: QQE
   comboPlaceholder: {fileID: 447444831}
   explosion: {fileID: 1600297452754384, guid: 93d8b7d9629e8cd4e9b44a391e266ab9, type: 2}
   ray: {fileID: 1515362430584796, guid: 506d2d57848c18446ab65e127b0b6142, type: 2}
@@ -5942,9 +5942,9 @@ GameObject:
   - component: {fileID: 2117139984}
   - component: {fileID: 2117139983}
   - component: {fileID: 2117139982}
+  - component: {fileID: 2117139981}
   - component: {fileID: 2117139979}
   - component: {fileID: 2117139980}
-  - component: {fileID: 2117139981}
   m_Layer: 0
   m_Name: hero02
   m_TagString: Player
