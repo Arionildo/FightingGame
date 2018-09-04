@@ -9,11 +9,11 @@ public class Character : MonoBehaviour {
     public float life;
     public float energy;
     public Text lifeText;
+    public bool isAttacking;
     
     private void Start()
     {
-        //life = 100;
-        //energy = 100;
+
     }
 
     private void Update()

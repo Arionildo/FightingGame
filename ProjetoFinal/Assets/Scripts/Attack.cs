@@ -15,7 +15,7 @@ public class Attack : MonoBehaviour
     public Transform comboPlaceholder;
     public GameObject explosion;
     public GameObject ray;
-
+    public Character executor;
     public const float maxKeyComboTimer = 2f;
     //public char[] currentCombo;
     public Queue currentCombo;
@@ -27,6 +27,7 @@ public class Attack : MonoBehaviour
         animator = GetComponent<Animator>();
         //currentCombo = new char[10];
         currentCombo = new Queue();
+        executor = GetComponent<Character>();
     }
 
     // Update is called once per frame
@@ -75,6 +76,7 @@ public class Attack : MonoBehaviour
     {
         isAttacking = animator.GetCurrentAnimatorStateInfo(0).IsName(EAnimations.ATTACK01.ToString())
                     || animator.GetCurrentAnimatorStateInfo(0).IsName(EAnimations.ATTACK02.ToString());
+        executor.isAttacking = isAttacking;
     }
 
     private void GetCommand()
