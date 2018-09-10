@@ -9,7 +9,6 @@ public class Attack : MonoBehaviour
     private Animator animator;
     private bool isAttacking;
     private float keyTimer;
-    //public List<char> comboA = new List<char>{ 't', 'e', 't', 'a' };
     public string comboA;
     public string comboB;
     public Transform comboPlaceholder;
@@ -17,7 +16,6 @@ public class Attack : MonoBehaviour
     public GameObject ray;
     public Character executor;
     public const float maxKeyComboTimer = 2f;
-    //public char[] currentCombo;
     public Queue currentCombo;
     public string helperCurrentCombo;
 
@@ -25,7 +23,6 @@ public class Attack : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        //currentCombo = new char[10];
         currentCombo = new Queue();
         executor = GetComponent<Character>();
     }
@@ -64,7 +61,6 @@ public class Attack : MonoBehaviour
             if (keyTimer < 0.0f)
             {
                 keyTimer = maxKeyComboTimer / 4;
-                //Debug.Log("Retirou o botão: " + currentCombo.Dequeue());
             }
         } else
         {
@@ -100,11 +96,9 @@ public class Attack : MonoBehaviour
         Event e = Event.current;
         if (e.type == EventType.KeyDown && e.character.ToString() != "\0")
         {
-            //Debug.Log("Inseriu o botão: " + e.character);
             keyTimer = maxKeyComboTimer;
             try
             {
-                //currentCombo[index++] = e.character;
                 currentCombo.Enqueue(Char.ToUpper(e.character));
             } catch (Exception ex)
             {
