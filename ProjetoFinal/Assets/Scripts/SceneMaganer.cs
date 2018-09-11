@@ -25,12 +25,14 @@ public class SceneMaganer : MonoBehaviour
     {
         if (ButtonFunc == "Start")
         {
-            Debug.Log("start button");
-            //SceneManager.LoadScene(indice da cena)
+            buttonNewGame.gameObject.SetActive(false);
+            buttonOptions.gameObject.SetActive(false);
+            buttonExit.gameObject.SetActive(false);
+            buttonVoltaMenu.gameObject.SetActive(false);
+            SceneManager.LoadScene("Scene01", LoadSceneMode.Additive);
         }
         else if (ButtonFunc == "Options")
         {
-            Debug.Log("options button");
             buttonNewGame.gameObject.SetActive(false);
             buttonOptions.gameObject.SetActive(false);
             buttonExit.gameObject.SetActive(false);
@@ -38,7 +40,6 @@ public class SceneMaganer : MonoBehaviour
         }
         else if (ButtonFunc == "FazAlgo")
         {
-            Debug.Log("faz algo button");
             buttonNewGame.gameObject.SetActive(true);
             buttonOptions.gameObject.SetActive(true);
             buttonExit.gameObject.SetActive(true);
