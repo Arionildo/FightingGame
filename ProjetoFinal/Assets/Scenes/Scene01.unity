@@ -1073,7 +1073,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4589949341288092, guid: 448f07307c103634daaecc9b1563dcd3, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4589949341288092, guid: 448f07307c103634daaecc9b1563dcd3, type: 2}
       propertyPath: m_LocalScale.x
@@ -1265,7 +1265,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &286951943
 GameObject:
@@ -5615,6 +5615,7 @@ MonoBehaviour:
   comboPlaceholder: {fileID: 447444831}
   explosion: {fileID: 1600297452754384, guid: 93d8b7d9629e8cd4e9b44a391e266ab9, type: 2}
   ray: {fileID: 1515362430584796, guid: 506d2d57848c18446ab65e127b0b6142, type: 2}
+  executor: {fileID: 0}
   helperCurrentCombo: 
 --- !u!143 &2047493064
 CharacterController:
@@ -5701,6 +5702,7 @@ MonoBehaviour:
   life: 1000
   energy: 1000
   lifeText: {fileID: 939443557}
+  isAttacking: 0
 --- !u!1 &2056160421
 GameObject:
   m_ObjectHideFlags: 0
@@ -5967,6 +5969,7 @@ MonoBehaviour:
   life: 1000
   energy: 1000
   lifeText: {fileID: 2119782744}
+  isAttacking: 0
 --- !u!114 &2117139980
 MonoBehaviour:
   m_ObjectHideFlags: 0

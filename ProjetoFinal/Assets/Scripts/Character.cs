@@ -19,6 +19,8 @@ public class Character : MonoBehaviour {
     private void Update()
     {
         UpdateLife();
+        foreach (string n in Input.GetJoystickNames())
+            print(n);
     }
 
     private void UpdateLife()
