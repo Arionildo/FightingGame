@@ -14,6 +14,7 @@ public class Attack1 : MonoBehaviour
     public Transform comboPlaceholder;
     public GameObject explosion;
     public GameObject ray;
+    public Character executor;
 
     public const float maxKeyComboTimer = 2f;
     public Queue currentCombo;
@@ -24,8 +25,7 @@ public class Attack1 : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         currentCombo = new Queue();
-        comboA = "+--";
-        comboB = "--+";
+        executor = GetComponent<Character>();
     }
 
     // Update is called once per frame
@@ -46,7 +46,6 @@ public class Attack1 : MonoBehaviour
             if (helperCurrentCombo.Contains(comboA))
             {
                 //EXECUTA A ANIMAÇÃO DO COMBO E LIMPA OS COMANDOS DIGITADOS PRA EVITAR LOOP
-                Debug.Log("ComboA executado!");
                 currentCombo.Clear();
                 Instantiate(explosion, comboPlaceholder).transform.parent = null;
             }
@@ -54,7 +53,6 @@ public class Attack1 : MonoBehaviour
             if (helperCurrentCombo.Contains(comboB))
             {
                 //EXECUTA A ANIMAÇÃO DO COMBO E LIMPA OS COMANDOS DIGITADOS PRA EVITAR LOOP
-                Debug.Log("ComboB executado!");
                 currentCombo.Clear();
                 Instantiate(ray, comboPlaceholder).transform.parent = null;
             }
@@ -73,6 +71,7 @@ public class Attack1 : MonoBehaviour
     {
         isAttacking = animator.GetCurrentAnimatorStateInfo(0).IsName(EAnimations.ATTACK01.ToString())
                     || animator.GetCurrentAnimatorStateInfo(0).IsName(EAnimations.ATTACK02.ToString());
+        executor.isAttacking = isAttacking;
     }
 
     private void GetCommand()

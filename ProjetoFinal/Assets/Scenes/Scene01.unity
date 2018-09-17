@@ -5649,7 +5649,9 @@ MonoBehaviour:
   jumpSpeed: 8
   currentSpeed: 0
   gravity: 20
-  playerIndex: 1
+  horizontal: Horizontal1
+  vertical: Vertical1
+  jump: Jump1
 --- !u!95 &2047493066
 Animator:
   serializedVersion: 3
@@ -5985,6 +5987,9 @@ MonoBehaviour:
   jumpSpeed: 8
   currentSpeed: 0
   gravity: 20
+  horizontal: Horizontal2
+  vertical: Vertical2
+  jump: Jump2
 --- !u!114 &2117139981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6001,6 +6006,7 @@ MonoBehaviour:
   comboPlaceholder: {fileID: 159082032}
   explosion: {fileID: 1600297452754384, guid: 93d8b7d9629e8cd4e9b44a391e266ab9, type: 2}
   ray: {fileID: 1515362430584796, guid: 506d2d57848c18446ab65e127b0b6142, type: 2}
+  executor: {fileID: 0}
   helperCurrentCombo: 
 --- !u!143 &2117139982
 CharacterController:

@@ -45,7 +45,6 @@ public class Attack : MonoBehaviour
             if (helperCurrentCombo.Contains(comboA))
             {
                 //EXECUTA A ANIMAÇÃO DO COMBO E LIMPA OS COMANDOS DIGITADOS PRA EVITAR LOOP
-                Debug.Log("ComboA executado!");
                 currentCombo.Clear();
                 Instantiate(explosion, comboPlaceholder).transform.parent = null;
             }
@@ -53,7 +52,6 @@ public class Attack : MonoBehaviour
             if (helperCurrentCombo.Contains(comboB))
             {
                 //EXECUTA A ANIMAÇÃO DO COMBO E LIMPA OS COMANDOS DIGITADOS PRA EVITAR LOOP
-                Debug.Log("ComboB executado!");
                 currentCombo.Clear();
                 Instantiate(ray, comboPlaceholder).transform.parent = null;
             }

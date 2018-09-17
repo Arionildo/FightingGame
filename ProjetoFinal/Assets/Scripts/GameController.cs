@@ -39,7 +39,6 @@ public class GameController : MonoBehaviour
     {
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Special"))
         {
-            Debug.Log("Destroy: " + go.name);
             Destroy(go, 1f);
         }
     }

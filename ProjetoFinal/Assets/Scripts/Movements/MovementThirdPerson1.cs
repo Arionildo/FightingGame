@@ -12,6 +12,9 @@ public class MovementThirdPerson1 : MonoBehaviour {
     private Vector3 moveDirection = Vector3.zero;
     private Animator animator;
     private bool isRunning;
+    [SerializeField] private string horizontal;
+    [SerializeField] private string vertical;
+    [SerializeField] private string jump;
 
     // Use this for initialization
     private void Start()
@@ -35,8 +38,8 @@ public class MovementThirdPerson1 : MonoBehaviour {
 
         if (controller.isGrounded)
         {
-            float moveHorizontal = Input.GetAxis("Horizontal2");
-            float moveVertical = Input.GetAxis("Vertical2");
+            float moveHorizontal = Input.GetAxis(horizontal);
+            float moveVertical = Input.GetAxis(vertical);
 
             Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
             if (movement.magnitude < 0.01f)
@@ -45,7 +48,7 @@ public class MovementThirdPerson1 : MonoBehaviour {
             transform.rotation = Quaternion.LookRotation(movement);
             transform.Translate(movement * speed * Time.deltaTime, Space.World);
 
-            if (Input.GetButton("Jump2"))
+            if (Input.GetButton(jump))
                 moveDirection.y = jumpSpeed;
 
         }
