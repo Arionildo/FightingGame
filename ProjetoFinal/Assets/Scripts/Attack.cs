@@ -18,6 +18,8 @@ public class Attack : MonoBehaviour
     public const float maxKeyComboTimer = 2f;
     public Queue currentCombo;
     public string helperCurrentCombo;
+    [SerializeField] private KeyCode attackA;
+    [SerializeField] private KeyCode attackB;
 
     // Use this for initialization
     private void Start()
@@ -77,12 +79,12 @@ public class Attack : MonoBehaviour
     {
         if (!isAttacking)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(attackA))
             {
                 animator.SetTrigger(EAnimations.ATTACK01.ToString());
             }
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(attackB))
             {
                 animator.SetTrigger(EAnimations.ATTACK02.ToString());
             }
