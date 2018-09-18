@@ -5610,6 +5610,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfcb4190268967344903be91b26cbe86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackA: 113
+  attackB: 101
   comboA: EEQ
   comboB: QQE
   comboPlaceholder: {fileID: 447444831}
@@ -5617,8 +5619,6 @@ MonoBehaviour:
   ray: {fileID: 1515362430584796, guid: 506d2d57848c18446ab65e127b0b6142, type: 2}
   executor: {fileID: 0}
   helperCurrentCombo: 
-  attackA: 113
-  attackB: 101
 --- !u!143 &2047493064
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5647,13 +5647,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25eab90f5b9cf1746bee67ea40971ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horizontal: Horizontal1
+  vertical: Vertical1
+  jump: Jump1
   speed: 6
   jumpSpeed: 8
   currentSpeed: 0
   gravity: 20
-  horizontal: Horizontal1
-  vertical: Vertical1
-  jump: Jump1
 --- !u!95 &2047493066
 Animator:
   serializedVersion: 3
@@ -5707,6 +5707,8 @@ MonoBehaviour:
   energy: 1000
   lifeText: {fileID: 939443557}
   isAttacking: 0
+  mass: 3
+  impact: {x: 0, y: 0, z: 0}
 --- !u!1 &2056160421
 GameObject:
   m_ObjectHideFlags: 0
@@ -5974,6 +5976,8 @@ MonoBehaviour:
   energy: 1000
   lifeText: {fileID: 2119782744}
   isAttacking: 0
+  mass: 3
+  impact: {x: 0, y: 0, z: 0}
 --- !u!114 &2117139980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5985,6 +5989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfcb4190268967344903be91b26cbe86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackA: 269
+  attackB: 270
   comboA: --+
   comboB: ++-
   comboPlaceholder: {fileID: 159082032}
@@ -5992,8 +5998,6 @@ MonoBehaviour:
   ray: {fileID: 1515362430584796, guid: 506d2d57848c18446ab65e127b0b6142, type: 2}
   executor: {fileID: 0}
   helperCurrentCombo: 
-  attackA: 269
-  attackB: 270
 --- !u!143 &2117139982
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6059,13 +6063,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25eab90f5b9cf1746bee67ea40971ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horizontal: Horizontal2
+  vertical: Vertical2
+  jump: Jump2
   speed: 6
   jumpSpeed: 8
   currentSpeed: 0
   gravity: 20
-  horizontal: Horizontal2
-  vertical: Vertical2
-  jump: Jump2
 --- !u!1 &2119782742
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+    [SerializeField] private KeyCode attackA;
+    [SerializeField] private KeyCode attackB;
     private Animator animator;
     private bool isAttacking;
     private float keyTimer;
@@ -18,8 +20,6 @@ public class Attack : MonoBehaviour
     public const float maxKeyComboTimer = 2f;
     public Queue currentCombo;
     public string helperCurrentCombo;
-    [SerializeField] private KeyCode attackA;
-    [SerializeField] private KeyCode attackB;
 
     // Use this for initialization
     private void Start()

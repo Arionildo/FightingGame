@@ -10,15 +10,19 @@ public class Character : MonoBehaviour {
     public float energy;
     public Text lifeText;
     public bool isAttacking;
+    public float mass;
+    public Vector3 impact = Vector3.zero;
+    private CharacterController cc;
     
     private void Start()
     {
-
+        cc = GetComponent<CharacterController>();
     }
 
     private void Update()
     {
         UpdateLife();
+        CheckImpact();
     }
 
     private void UpdateLife()
@@ -39,13 +43,34 @@ public class Character : MonoBehaviour {
         {
             Weapon weapon = other.GetComponent<Weapon>();
             if (!id.Equals(weapon.owner.id))
+            {
                 life -= weapon.damage;
+                AddImpact(other.transform.TransformDirection(Vector3.forward), 100f);
+                print("qwewqe");
+            }
         }
 
         if (other.tag.Equals("Special"))
         {
             Weapon weapon = other.GetComponent<Weapon>();
             life -= weapon.damage;
+            AddImpact(other.transform.TransformDirection(Vector3.forward), 100f);
         }
+    }
+
+    private void AddImpact(Vector3 direction, float force)
+    {
+        direction.Normalize();
+        if (direction.y < 0) direction.y = -direction.y;
+        impact += direction.normalized * force / mass;
+    }
+
+    private void CheckImpact()
+    {
+        if (impact.magnitude > 0.2)
+        {
+            cc.Move(impact * Time.deltaTime);
+        }
+        impact = Vector3.Lerp(impact, Vector3.zero, 5 * Time.deltaTime);
     }
 }

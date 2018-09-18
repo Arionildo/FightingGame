@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class MovementThirdPerson : MonoBehaviour
 {
-
+    [SerializeField] private string horizontal;
+    [SerializeField] private string vertical;
+    [SerializeField] private string jump;
     public float speed = 6.0F;
     public float jumpSpeed = 8.0F;
     public float currentSpeed = 0;
@@ -13,9 +15,6 @@ public class MovementThirdPerson : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     private Animator animator;
     private bool isRunning;
-    [SerializeField] private string horizontal;
-    [SerializeField] private string vertical;
-    [SerializeField] private string jump;
 
     // Use this for initialization
     private void Start()
