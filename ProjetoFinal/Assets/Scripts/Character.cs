@@ -46,7 +46,6 @@ public class Character : MonoBehaviour {
             {
                 life -= weapon.damage;
                 AddImpact(weapon.owner.transform.TransformDirection(Vector3.forward), 100f);
-                print("qwewqe");
             }
         }
 

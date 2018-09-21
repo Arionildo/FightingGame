@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -3342,9 +3342,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec8055d507bee1d4c9709c89c27a963d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2047493067}
-  smooth: 0.1
-  offset: {x: 0, y: 8, z: -10}
+  targets:
+  - {fileID: 2047493067}
+  - {fileID: 2117139984}
+  smooth: 0.5
+  offset: {x: 0, y: 40, z: -35}
+  velocity: {x: 0, y: 0, z: 0}
+  camera: {fileID: 0}
+  minZoom: 50
+  maxZoom: 20
+  zoomLimiter: 60
 --- !u!81 &1144328075
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3401,13 +3408,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1144328073}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.2, z: -28.7}
+  m_LocalRotation: {x: 0.44281438, y: -0, z: -0, w: 0.89661336}
+  m_LocalPosition: {x: 0, y: 45.8, z: -28.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 52.567, y: 0, z: 0}
 --- !u!1 &1163129134
 GameObject:
   m_ObjectHideFlags: 0

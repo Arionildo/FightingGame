@@ -1,23 +1,61 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Camera))]
 public class CameraSmooth : MonoBehaviour {
 
-    public Transform target;
-    public float smooth = .1f;
+    public List<Transform> targets;
+    public float smooth = .5f;
     public Vector3 offset;
+    public Vector3 velocity;
+    public new Camera camera;
+    public float minZoom = 40f;
+    public float maxZoom = 10f;
+    public float zoomLimiter = 50f;
 
     private void Start() {
-        if (target == null)
-            target = GameObject.FindWithTag("Player").transform;
+        camera = GetComponent<Camera>();
     }
 
-    private void FixedUpdate() {
-        Vector3 cameraPosition = target.position + offset;
-        Vector3 smoothingPosition = Vector3.Lerp(transform.position, cameraPosition, smooth);
+    private void LateUpdate() {
+        if (targets.Count == 0)
+            return;
 
-        transform.position = smoothingPosition;
-        transform.LookAt(target);
+        Move();
+        Zoom();
+    }
+
+    private void Zoom()
+    {
+        float newZoom = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistance() / zoomLimiter);
+        camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, newZoom, Time.deltaTime);
+    }
+
+    private void Move()
+    {
+        Vector3 centerPoint = GetCenterPoint();
+        Vector3 newPosition = centerPoint + offset;
+        transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smooth);
+    }
+
+    private float GetGreatestDistance()
+    {
+        return GetBounds().size.x;
+    }
+
+    private Vector3 GetCenterPoint()
+    {
+        return targets.Count == 1 ? targets[0].position : GetBounds().center;
+    }
+
+    private Bounds GetBounds()
+    {
+        Bounds bounds = new Bounds(targets[0].position, Vector3.zero);
+        for (int i = 0; i < targets.Count; i++)
+            bounds.Encapsulate(targets[i].position);
+
+        return bounds;
     }
 }
