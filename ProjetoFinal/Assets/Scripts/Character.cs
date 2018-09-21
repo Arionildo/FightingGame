@@ -45,7 +45,7 @@ public class Character : MonoBehaviour {
             if (!id.Equals(weapon.owner.id))
             {
                 life -= weapon.damage;
-                AddImpact(other.transform.TransformDirection(Vector3.forward), 100f);
+                AddImpact(weapon.owner.transform.TransformDirection(Vector3.forward), 100f);
                 print("qwewqe");
             }
         }
@@ -54,7 +54,7 @@ public class Character : MonoBehaviour {
         {
             Weapon weapon = other.GetComponent<Weapon>();
             life -= weapon.damage;
-            AddImpact(other.transform.TransformDirection(Vector3.forward), 100f);
+            AddImpact(weapon.owner.transform.TransformDirection(Vector3.forward), 100f);
         }
     }
 
