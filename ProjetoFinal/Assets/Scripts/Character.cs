@@ -6,17 +6,25 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour {
     public int id;
-    public float life;
+    public float maxLife;
+    public float currentLife;
     public float energy;
     public Text lifeText;
     public bool isAttacking;
     public float mass;
     public Vector3 impact = Vector3.zero;
     private CharacterController cc;
-    
+    public Material characterColor;
+    public Material deadColor;
+    private Renderer modelRenderer;
+    private Collider modelCollider;
+
     private void Start()
     {
         cc = GetComponent<CharacterController>();
+        currentLife = maxLife;
+        modelRenderer = transform.Find("Model").GetComponent<Renderer>();
+        modelCollider = transform.Find("Model").transform.GetComponent<Collider>();
     }
 
     private void Update()
@@ -27,14 +35,30 @@ public class Character : MonoBehaviour {
 
     private void UpdateLife()
     {
-        if (life <= 0)
+        if (!IsAlive())
         {
             lifeText.text = "DEAD";
-            Destroy(gameObject);
+            modelRenderer.material = deadColor;
+            cc.enabled = false;
+            modelCollider.enabled = false;
+            Invoke("Respawn", 3f);
         } else
         {
-            lifeText.text = life.ToString();
+            lifeText.text = currentLife.ToString();
         }
+    }
+
+    public bool IsAlive()
+    {
+        return currentLife > 0;
+    }
+
+    private void Respawn()
+    {
+        currentLife = maxLife;
+        modelRenderer.material = characterColor;
+        cc.enabled = true;
+        modelCollider.enabled = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -44,7 +68,7 @@ public class Character : MonoBehaviour {
             Weapon weapon = other.GetComponent<Weapon>();
             if (!id.Equals(weapon.owner.id))
             {
-                life -= weapon.damage;
+                currentLife -= weapon.damage;
                 AddImpact(weapon.owner.transform.TransformDirection(Vector3.forward), 100f);
             }
         }
@@ -52,8 +76,9 @@ public class Character : MonoBehaviour {
         if (other.tag.Equals("Special"))
         {
             Weapon weapon = other.GetComponent<Weapon>();
-            life -= weapon.damage;
-            AddImpact(weapon.owner.transform.TransformDirection(Vector3.forward), 100f);
+            currentLife -= weapon.damage;
+            if (weapon.owner != null)
+                AddImpact(weapon.owner.transform.TransformDirection(Vector3.forward), 100f);
         }
     }
 

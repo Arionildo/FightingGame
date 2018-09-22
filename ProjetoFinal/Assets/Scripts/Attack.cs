@@ -77,7 +77,7 @@ public class Attack : MonoBehaviour
 
     private void GetCommand()
     {
-        if (!isAttacking)
+        if (!isAttacking && executor.IsAlive())
         {
             if (Input.GetKeyDown(attackA))
             {

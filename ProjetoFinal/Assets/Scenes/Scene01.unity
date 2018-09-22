@@ -2112,7 +2112,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e3ecf68bec3b5ba41932c125d7039590, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2517,7 +2517,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4e5b9e56e3bc0c14eb11e68b762811ff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5710,12 +5710,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  life: 1000
+  maxLife: 1000
+  currentLife: 0
   energy: 1000
   lifeText: {fileID: 939443557}
   isAttacking: 0
   mass: 3
   impact: {x: 0, y: 0, z: 0}
+  characterColor: {fileID: 2100000, guid: 4e5b9e56e3bc0c14eb11e68b762811ff, type: 2}
+  deadColor: {fileID: 2100000, guid: 289270924bd17244da4dc9986d2af8f4, type: 2}
 --- !u!1 &2056160421
 GameObject:
   m_ObjectHideFlags: 0
@@ -5979,12 +5982,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  life: 1000
+  maxLife: 1000
+  currentLife: 0
   energy: 1000
   lifeText: {fileID: 2119782744}
   isAttacking: 0
   mass: 3
   impact: {x: 0, y: 0, z: 0}
+  characterColor: {fileID: 2100000, guid: e3ecf68bec3b5ba41932c125d7039590, type: 2}
+  deadColor: {fileID: 2100000, guid: 289270924bd17244da4dc9986d2af8f4, type: 2}
 --- !u!114 &2117139980
 MonoBehaviour:
   m_ObjectHideFlags: 0
