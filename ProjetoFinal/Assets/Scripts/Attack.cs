@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+    [SerializeField] private const float maxKeyComboTimer = 2f;
     [SerializeField] private KeyCode attackA;
     [SerializeField] private KeyCode attackB;
     private Animator animator;
@@ -17,7 +18,6 @@ public class Attack : MonoBehaviour
     public GameObject explosion;
     public GameObject ray;
     public Character executor;
-    public const float maxKeyComboTimer = 2f;
     public Queue currentCombo;
     public string helperCurrentCombo;
 
@@ -99,7 +99,8 @@ public class Attack : MonoBehaviour
             keyTimer = maxKeyComboTimer;
             try
             {
-                currentCombo.Enqueue(Char.ToUpper(e.character));
+                if (Input.GetKeyDown(attackA) || Input.GetKeyDown(attackB))
+                    currentCombo.Enqueue(Char.ToUpper(e.character));
             } catch (Exception ex)
             {
                 Debug.Log(ex.StackTrace);
