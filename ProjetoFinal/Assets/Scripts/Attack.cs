@@ -9,6 +9,7 @@ public class Attack : MonoBehaviour
     [SerializeField] private const float maxKeyComboTimer = 2f;
     [SerializeField] private KeyCode attackA;
     [SerializeField] private KeyCode attackB;
+    [SerializeField] private KeyCode Defence;
     private Animator animator;
     private bool isAttacking;
     private float keyTimer;
@@ -87,6 +88,15 @@ public class Attack : MonoBehaviour
             if (Input.GetKeyDown(attackB))
             {
                 animator.SetTrigger(EAnimations.ATTACK02.ToString());
+            }
+
+            if (Input.GetKey(Defence) && executor.cdShield == 0)
+            {
+                executor.isDefending = true;
+            }
+            else if (Input.GetKeyUp(Defence))
+            {
+                executor.isDefending = false;
             }
         }
     }

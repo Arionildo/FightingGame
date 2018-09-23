@@ -18,6 +18,10 @@ public class Character : MonoBehaviour {
     public Material deadColor;
     private Renderer modelRenderer;
     private Collider modelCollider;
+    public bool isDefending;
+    public float shieldEnergy = 100;
+    public float cdShield = 0;
+    
 
     private void Start()
     {
@@ -31,6 +35,7 @@ public class Character : MonoBehaviour {
     {
         UpdateLife();
         CheckImpact();
+        Defend();
     }
 
     private void UpdateLife()
@@ -63,22 +68,42 @@ public class Character : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag.Equals("Weapon"))
+        if (!isDefending)
         {
-            Weapon weapon = other.GetComponent<Weapon>();
-            if (!id.Equals(weapon.owner.id))
+            if (other.tag.Equals("Weapon"))
             {
+                Weapon weapon = other.GetComponent<Weapon>();
+                if (!id.Equals(weapon.owner.id))
+                {
+                    currentLife -= weapon.damage;
+                    AddImpact(weapon.owner.transform.TransformDirection(Vector3.forward), 100f);
+                }
+            }
+
+            if (other.tag.Equals("Special"))
+            {
+                Weapon weapon = other.GetComponent<Weapon>();
                 currentLife -= weapon.damage;
-                AddImpact(weapon.owner.transform.TransformDirection(Vector3.forward), 100f);
+                if (weapon.owner != null)
+                    AddImpact(weapon.owner.transform.TransformDirection(Vector3.forward), 100f);
             }
         }
-
-        if (other.tag.Equals("Special"))
+        else
         {
-            Weapon weapon = other.GetComponent<Weapon>();
-            currentLife -= weapon.damage;
-            if (weapon.owner != null)
-                AddImpact(weapon.owner.transform.TransformDirection(Vector3.forward), 100f);
+            if (other.tag.Equals("Weapon"))
+            {
+                Weapon weapon = other.GetComponent<Weapon>();
+                if (!id.Equals(weapon.owner.id))
+                {
+                    shieldEnergy -= 15;
+                }
+            }
+
+            if (other.tag.Equals("Special"))
+            {
+                Weapon weapon = other.GetComponent<Weapon>();
+                shieldEnergy -= 20;
+            }
         }
     }
 
@@ -96,5 +121,44 @@ public class Character : MonoBehaviour {
             cc.Move(impact * Time.deltaTime);
         }
         impact = Vector3.Lerp(impact, Vector3.zero, 5 * Time.deltaTime);
+    }
+
+    private void Defend()
+    {
+        if (shieldEnergy <= 0)
+        {
+            cdShield = 5;
+            shieldEnergy = 1;
+            isDefending = false;
+        }
+        if (shieldEnergy >= 0)
+        {
+            if (isDefending)
+            {
+                shieldEnergy -= 5 * Time.deltaTime;
+            }
+            else
+            {
+                if (shieldEnergy >= 100)
+                {
+                    shieldEnergy = 100;
+                }
+                else
+                {
+                    shieldEnergy += 15 * Time.deltaTime;
+                }
+            }
+        }
+        if(cdShield > 0)
+        {
+            cdShield -= 1 * Time.deltaTime;
+            if (cdShield <= 0)
+            {
+                cdShield = 0;
+            }
+        }
+
+        
+
     }
 }
