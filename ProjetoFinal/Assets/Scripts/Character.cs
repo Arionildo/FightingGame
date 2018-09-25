@@ -42,10 +42,12 @@ public class Character : MonoBehaviour {
     {
         if (!IsAlive())
         {
+            if (modelRenderer != null)
+                modelRenderer.material = deadColor;
+            if (modelCollider != null)
+                modelCollider.enabled = false;
             lifeText.text = "DEAD";
-            modelRenderer.material = deadColor;
             cc.enabled = false;
-            modelCollider.enabled = false;
             Invoke("Respawn", 3f);
         } else
         {
@@ -60,19 +62,21 @@ public class Character : MonoBehaviour {
 
     private void Respawn()
     {
+        if (modelRenderer != null)
+            modelRenderer.material = characterColor;
+        if (modelCollider != null)
+            modelCollider.enabled = true;
         currentLife = maxLife;
-        modelRenderer.material = characterColor;
         cc.enabled = true;
-        modelCollider.enabled = true;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (!isDefending)
         {
+            Weapon weapon = other.GetComponent<Weapon>();
             if (other.tag.Equals("Weapon"))
             {
-                Weapon weapon = other.GetComponent<Weapon>();
                 if (!id.Equals(weapon.owner.id))
                 {
                     currentLife -= weapon.damage;
@@ -82,7 +86,6 @@ public class Character : MonoBehaviour {
 
             if (other.tag.Equals("Special"))
             {
-                Weapon weapon = other.GetComponent<Weapon>();
                 currentLife -= weapon.damage;
                 if (weapon.owner != null)
                     AddImpact(weapon.owner.transform.TransformDirection(Vector3.forward), 100f);
@@ -90,9 +93,9 @@ public class Character : MonoBehaviour {
         }
         else
         {
+            Weapon weapon = other.GetComponent<Weapon>();
             if (other.tag.Equals("Weapon"))
             {
-                Weapon weapon = other.GetComponent<Weapon>();
                 if (!id.Equals(weapon.owner.id))
                 {
                     shieldEnergy -= 15;
@@ -101,7 +104,6 @@ public class Character : MonoBehaviour {
 
             if (other.tag.Equals("Special"))
             {
-                Weapon weapon = other.GetComponent<Weapon>();
                 shieldEnergy -= 20;
             }
         }

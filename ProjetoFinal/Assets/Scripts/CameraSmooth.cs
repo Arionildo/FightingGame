@@ -6,7 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class CameraSmooth : MonoBehaviour {
 
-    public List<Transform> targets;
+    private GameObject[] players;
+    private List<Transform> targets;
     public float smooth = .5f;
     public Vector3 offset;
     public Vector3 velocity;
@@ -17,6 +18,11 @@ public class CameraSmooth : MonoBehaviour {
 
     private void Start() {
         camera = GetComponent<Camera>();
+        targets = new List<Transform>();
+        players = GameObject.FindGameObjectsWithTag("Player");
+        if (players != null)
+            foreach (GameObject player in players)
+                targets.Add(player.transform);
     }
 
     private void LateUpdate() {

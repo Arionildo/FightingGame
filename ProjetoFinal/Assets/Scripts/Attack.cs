@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Attack : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class Attack : MonoBehaviour
     public Character executor;
     public Queue currentCombo;
     public string helperCurrentCombo;
+    public Text commandText;
 
     // Use this for initialization
     private void Start()
@@ -28,6 +30,9 @@ public class Attack : MonoBehaviour
         animator = GetComponent<Animator>();
         currentCombo = new Queue();
         executor = GetComponent<Character>();
+        commandText.text = attackA.ToString() + " -> AttackA\n" +
+                            attackB.ToString() + " -> AttackB\n" +
+                            Defence.ToString() + " -> Defend";
     }
 
     // Update is called once per frame
@@ -80,14 +85,17 @@ public class Attack : MonoBehaviour
     {
         if (!isAttacking && executor.IsAlive())
         {
-            if (Input.GetKeyDown(attackA))
+            if (!executor.isDefending)
             {
-                animator.SetTrigger(EAnimations.ATTACK01.ToString());
-            }
+                if (Input.GetKeyDown(attackA))
+                {
+                    animator.SetTrigger(EAnimations.ATTACK01.ToString());
+                }
 
-            if (Input.GetKeyDown(attackB))
-            {
-                animator.SetTrigger(EAnimations.ATTACK02.ToString());
+                if (Input.GetKeyDown(attackB))
+                {
+                    animator.SetTrigger(EAnimations.ATTACK02.ToString());
+                }
             }
 
             if (Input.GetKey(Defence) && executor.cdShield == 0)
