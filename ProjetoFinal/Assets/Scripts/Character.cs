@@ -10,6 +10,7 @@ public class Character : MonoBehaviour {
     public float currentLife;
     public float energy;
     public Text lifeText;
+    public Slider barSlider;
     public bool isAttacking;
     public float mass;
     public Vector3 impact = Vector3.zero;
@@ -52,6 +53,7 @@ public class Character : MonoBehaviour {
         } else
         {
             lifeText.text = currentLife.ToString();
+            barSlider.value = (currentLife / maxLife) * 100;
         }
     }
 
