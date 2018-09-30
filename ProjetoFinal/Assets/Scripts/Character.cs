@@ -121,7 +121,7 @@ public class Character : MonoBehaviour {
 
     private void CheckImpact()
     {
-        if (impact.magnitude > 0.2)
+        if (impact.magnitude > 0.2 && cc.enabled)
         {
             cc.Move(impact * Time.deltaTime);
         }

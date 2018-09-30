@@ -16,7 +16,7 @@ public class SceneMaganer : MonoBehaviour
         buttonExit.gameObject.SetActive(true);
         buttonVoltaMenu.gameObject.SetActive(false);
         audioData = GetComponent<AudioSource>();
-        audioData.Play(0);
+        if (audioData != null) audioData.Play(0);
     }
 
     void Update()
@@ -33,7 +33,7 @@ public class SceneMaganer : MonoBehaviour
             buttonExit.gameObject.SetActive(false);
             buttonVoltaMenu.gameObject.SetActive(false);
             SceneManager.LoadScene("Scene01", LoadSceneMode.Single);
-            audioData.Stop();
+            if (audioData != null) audioData.Stop();
         }
         else if (ButtonFunc == "Options")
         {
