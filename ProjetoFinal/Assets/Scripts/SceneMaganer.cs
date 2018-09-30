@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SceneMaganer : MonoBehaviour
 {
     public Button buttonNewGame, buttonOptions, buttonExit, buttonVoltaMenu;
+    public AudioSource audioData;
 
     void Start()
     {
@@ -14,6 +15,8 @@ public class SceneMaganer : MonoBehaviour
         buttonOptions.gameObject.SetActive(true);
         buttonExit.gameObject.SetActive(true);
         buttonVoltaMenu.gameObject.SetActive(false);
+        audioData = GetComponent<AudioSource>();
+        audioData.Play(0);
     }
 
     void Update()
@@ -29,7 +32,8 @@ public class SceneMaganer : MonoBehaviour
             buttonOptions.gameObject.SetActive(false);
             buttonExit.gameObject.SetActive(false);
             buttonVoltaMenu.gameObject.SetActive(false);
-            SceneManager.LoadScene("Scene01", LoadSceneMode.Additive);
+            SceneManager.LoadScene("Scene01", LoadSceneMode.Single);
+            audioData.Stop();
         }
         else if (ButtonFunc == "Options")
         {
