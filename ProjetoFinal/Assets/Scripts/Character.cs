@@ -78,40 +78,41 @@ public class Character : MonoBehaviour {
         {
             Weapon weapon = other.GetComponent<Weapon>();
             if (other.tag.Equals("Weapon"))
-            {
                 if (!id.Equals(weapon.owner.id))
-                {
-                    currentLife -= weapon.damage;
-                    AddImpact(weapon.owner.transform.TransformDirection(Vector3.forward), 100f);
-                }
-            }
+                    TakeDamage(weapon, 100f);
 
             if (other.tag.Equals("Special"))
-            {
-                currentLife -= weapon.damage;
-                if (weapon.owner != null)
-                    AddImpact(weapon.owner.transform.TransformDirection(Vector3.forward), 100f);
-            }
+                if (!id.Equals(weapon.owner.id))
+                    TakeDamage(weapon, 100f);
         }
         else
         {
             Weapon weapon = other.GetComponent<Weapon>();
             if (other.tag.Equals("Weapon"))
-            {
                 if (!id.Equals(weapon.owner.id))
-                {
                     shieldEnergy -= 15;
-                }
-            }
 
             if (other.tag.Equals("Special"))
-            {
                 shieldEnergy -= 20;
-            }
         }
     }
 
-    private void AddImpact(Vector3 direction, float force)
+    private void TakeDamage(Weapon weapon, float impact)
+    {
+        currentLife -= weapon.damage;
+
+        switch (weapon.skillType)
+        {
+            case ESkillType.HOOK_STUN:
+                AddImpact(weapon.owner.transform.InverseTransformDirection(Vector3.forward), impact*2);
+                break;
+            default:
+                AddImpact(weapon.owner.transform.TransformDirection(Vector3.forward), impact);
+                break;
+        }
+    }
+
+    public void AddImpact(Vector3 direction, float force)
     {
         direction.Normalize();
         if (direction.y < 0) direction.y = -direction.y;

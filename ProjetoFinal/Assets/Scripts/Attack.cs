@@ -17,8 +17,8 @@ public class Attack : MonoBehaviour
     public string comboA;
     public string comboB;
     public Transform comboPlaceholder;
-    public GameObject explosion;
-    public GameObject ray;
+    public GameObject skillA;
+    public GameObject skillB;
     public Character executor;
     public Queue currentCombo;
     public string helperCurrentCombo;
@@ -54,14 +54,18 @@ public class Attack : MonoBehaviour
             {
                 //EXECUTA A ANIMAÇÃO DO COMBO E LIMPA OS COMANDOS DIGITADOS PRA EVITAR LOOP
                 currentCombo.Clear();
-                Instantiate(explosion, comboPlaceholder).transform.parent = null;
+                Weapon special = Instantiate(skillA, comboPlaceholder).GetComponent<Weapon>();
+                special.transform.parent = null;
+                special.owner = executor;
             }
 
             if (helperCurrentCombo.Contains(comboB))
             {
                 //EXECUTA A ANIMAÇÃO DO COMBO E LIMPA OS COMANDOS DIGITADOS PRA EVITAR LOOP
                 currentCombo.Clear();
-                Instantiate(ray, comboPlaceholder).transform.parent = null;
+                Weapon special = Instantiate(skillB, comboPlaceholder).GetComponent<Weapon>();
+                special.transform.parent = null;
+                special.owner = executor;
             }
 
             if (keyTimer < 0.0f)

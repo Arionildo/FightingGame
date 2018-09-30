@@ -1095,7 +1095,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1032453553741380}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 7.3, y: 0.10987854, z: -0.89}
+  m_LocalPosition: {x: 7.3, y: 0.5, z: -0.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4548017554097252}
@@ -1947,7 +1947,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1392466628623194}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1981,7 +1981,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1992307632493562}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2066,6 +2066,7 @@ MonoBehaviour:
   damage: 40
   owner: {fileID: 114551734448613710}
   weaponCollider: {fileID: 135952419849957374}
+  skillType: 0
 --- !u!114 &114354389131410858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2083,8 +2084,8 @@ MonoBehaviour:
   comboA: QEE
   comboB: EEQ
   comboPlaceholder: {fileID: 4548017554097252}
-  explosion: {fileID: 1600297452754384, guid: 93d8b7d9629e8cd4e9b44a391e266ab9, type: 2}
-  ray: {fileID: 1515362430584796, guid: 506d2d57848c18446ab65e127b0b6142, type: 2}
+  skillA: {fileID: 1678498364433858, guid: 08ca1a6f725b3ab418a08e6a77107d4e, type: 2}
+  skillB: {fileID: 1515362430584796, guid: 506d2d57848c18446ab65e127b0b6142, type: 2}
   executor: {fileID: 114551734448613710}
   helperCurrentCombo: 
   commandText: {fileID: 0}
@@ -2104,8 +2105,9 @@ MonoBehaviour:
   currentLife: 1000
   energy: 1000
   lifeText: {fileID: 0}
+  barSlider: {fileID: 0}
   isAttacking: 0
-  mass: 0
+  mass: 10
   impact: {x: 0, y: 0, z: 0}
   characterColor: {fileID: 2100000, guid: 067e0aeed436cd045b71ee072a68d20e, type: 2}
   deadColor: {fileID: 2100000, guid: 289270924bd17244da4dc9986d2af8f4, type: 2}
@@ -2145,6 +2147,7 @@ MonoBehaviour:
   damage: 40
   owner: {fileID: 114551734448613710}
   weaponCollider: {fileID: 135130851788509250}
+  skillType: 0
 --- !u!135 &135130851788509250
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -2153,7 +2156,7 @@ SphereCollider:
   m_GameObject: {fileID: 1992307632493562}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -2165,7 +2168,7 @@ SphereCollider:
   m_GameObject: {fileID: 1392466628623194}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

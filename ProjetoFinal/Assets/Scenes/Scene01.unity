@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2449,8 +2449,8 @@ MonoBehaviour:
   comboA: --+
   comboB: ++-
   comboPlaceholder: {fileID: 19778220}
-  explosion: {fileID: 1600297452754384, guid: 93d8b7d9629e8cd4e9b44a391e266ab9, type: 2}
-  ray: {fileID: 1515362430584796, guid: 506d2d57848c18446ab65e127b0b6142, type: 2}
+  skillA: {fileID: 1600297452754384, guid: 93d8b7d9629e8cd4e9b44a391e266ab9, type: 2}
+  skillB: {fileID: 1515362430584796, guid: 506d2d57848c18446ab65e127b0b6142, type: 2}
   executor: {fileID: 0}
   helperCurrentCombo: 
   commandText: {fileID: 322885979}
@@ -2493,7 +2493,7 @@ MonoBehaviour:
   lifeText: {fileID: 893257155}
   barSlider: {fileID: 994955447}
   isAttacking: 0
-  mass: 0
+  mass: 10
   impact: {x: 0, y: 0, z: 0}
   characterColor: {fileID: 2100000, guid: e3ecf68bec3b5ba41932c125d7039590, type: 2}
   deadColor: {fileID: 2100000, guid: 289270924bd17244da4dc9986d2af8f4, type: 2}
@@ -3166,6 +3166,7 @@ MonoBehaviour:
   damage: 40
   owner: {fileID: 0}
   weaponCollider: {fileID: 0}
+  skillType: 0
 --- !u!23 &1119323099
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3173,7 +3174,7 @@ MeshRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1119323096}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3745,6 +3746,7 @@ MonoBehaviour:
   damage: 40
   owner: {fileID: 0}
   weaponCollider: {fileID: 0}
+  skillType: 0
 --- !u!23 &1240252758
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3752,7 +3754,7 @@ MeshRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1240252755}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4205,32 +4207,32 @@ Prefab:
       propertyPath: lifeText
       value: 
       objectReference: {fileID: 939443557}
-    - target: {fileID: 114354389131410858, guid: cedcf8b64fec8504bac47c636ce74200,
-        type: 2}
-      propertyPath: commandText
-      value: 
-      objectReference: {fileID: 922299902}
-    - target: {fileID: 1807350982988202, guid: cedcf8b64fec8504bac47c636ce74200, type: 2}
-      propertyPath: m_TagString
-      value: WeaponPlaceholder
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992307632493562, guid: cedcf8b64fec8504bac47c636ce74200, type: 2}
-      propertyPath: m_TagString
-      value: Weapon
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392466628623194, guid: cedcf8b64fec8504bac47c636ce74200, type: 2}
-      propertyPath: m_TagString
-      value: Weapon
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300844802063320, guid: cedcf8b64fec8504bac47c636ce74200, type: 2}
-      propertyPath: m_TagString
-      value: WeaponPlaceholder
-      objectReference: {fileID: 0}
     - target: {fileID: 114551734448613710, guid: cedcf8b64fec8504bac47c636ce74200,
         type: 2}
       propertyPath: barSlider
       value: 
       objectReference: {fileID: 1159058714}
+    - target: {fileID: 114354389131410858, guid: cedcf8b64fec8504bac47c636ce74200,
+        type: 2}
+      propertyPath: commandText
+      value: 
+      objectReference: {fileID: 922299902}
+    - target: {fileID: 4548017554097252, guid: cedcf8b64fec8504bac47c636ce74200, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548017554097252, guid: cedcf8b64fec8504bac47c636ce74200, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548017554097252, guid: cedcf8b64fec8504bac47c636ce74200, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548017554097252, guid: cedcf8b64fec8504bac47c636ce74200, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cedcf8b64fec8504bac47c636ce74200, type: 2}
   m_IsPrefabParent: 0
@@ -5741,8 +5743,8 @@ MonoBehaviour:
   comboA: --+
   comboB: ++-
   comboPlaceholder: {fileID: 159082032}
-  explosion: {fileID: 1600297452754384, guid: 93d8b7d9629e8cd4e9b44a391e266ab9, type: 2}
-  ray: {fileID: 1515362430584796, guid: 506d2d57848c18446ab65e127b0b6142, type: 2}
+  skillA: {fileID: 0}
+  skillB: {fileID: 0}
   executor: {fileID: 0}
   helperCurrentCombo: 
   commandText: {fileID: 0}

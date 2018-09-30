@@ -8,14 +8,10 @@ public class Weapon : MonoBehaviour {
     public float damage;
     public Character owner;
     public Collider weaponCollider;
+    public ESkillType skillType;
 
 	// Use this for initialization
 	void Start () {
-        if (transform.root != null)
-        {
-            owner = transform.root.GetComponent<Character>();
-        }
-
         Physics.IgnoreCollision(GetComponent<Collider>(), transform.root.GetComponent<Collider>());
 
         weaponCollider = GetComponent<Collider>();
