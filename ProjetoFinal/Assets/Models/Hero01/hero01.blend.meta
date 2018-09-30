@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: ae8ae7c801227d644883ad10c8c71631
-timeCreated: 1533784301
-licenseType: Free
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: Armature
     100002: Armature_001
@@ -290,6 +288,7 @@ ModelImporter:
     13700000: MAW
     13700002: SK_Pickaxe_Viking
     13700004: MAW_001
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -309,6 +308,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -480,6 +480,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
