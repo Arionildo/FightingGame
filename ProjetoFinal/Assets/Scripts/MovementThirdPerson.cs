@@ -12,7 +12,7 @@ public class MovementThirdPerson : MonoBehaviour
     public float speed = 6.0F;
     public float jumpSpeed = 8.0F;
     public float currentSpeed = 0;
-    public float gravity = 20.0F;
+    public float gravity = 9.0F;
     private Animator animator;
 
     // Use this for initialization
@@ -35,6 +35,9 @@ public class MovementThirdPerson : MonoBehaviour
             float moveHorizontal = Input.GetAxis(horizontal);
             float moveVertical = Input.GetAxis(vertical);
 
+            if (Input.GetButton(jump))
+                moveDirection.y = jumpSpeed;
+
             Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
             if (movement.magnitude < 0.01f)
             {
@@ -47,10 +50,6 @@ public class MovementThirdPerson : MonoBehaviour
 
             transform.rotation = Quaternion.LookRotation(movement);
             transform.Translate(movement * speed * Time.deltaTime, Space.World);
-
-            if (Input.GetButton(jump))
-                moveDirection.y = jumpSpeed;
-
         }
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
