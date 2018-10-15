@@ -39,7 +39,10 @@ public class Attack : MonoBehaviour
     private void Update()
     {
         UpdateStatus();
-        GetCommand();
+        if ( !GetComponent<MovementThirdPerson>().stunned )
+        {
+            GetCommand();
+        }
         UpdateKeyTimer();
     }
 

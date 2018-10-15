@@ -28,8 +28,8 @@ public class Character : MonoBehaviour {
     {
         cc = GetComponent<CharacterController>();
         currentLife = maxLife;
-        modelRenderer = transform.Find("Model").GetComponent<Renderer>();
-        modelCollider = transform.Find("Model").transform.GetComponent<Collider>();
+        //modelRenderer = transform.Find("Model").GetComponent<Renderer>();
+        //modelCollider = transform.Find("Model").transform.GetComponent<Collider>();
     }
 
     private void Update()
@@ -79,11 +79,11 @@ public class Character : MonoBehaviour {
             Weapon weapon = other.GetComponent<Weapon>();
             if (other.tag.Equals("Weapon"))
                 if (!id.Equals(weapon.owner.id))
-                    TakeDamage(weapon, 100f);
+                    TakeDamage(weapon, 100f,0.5f);
 
             if (other.tag.Equals("Special"))
                 if (!id.Equals(weapon.owner.id))
-                    TakeDamage(weapon, 100f);
+                    TakeDamage(weapon, 100f, 0.5f);
         }
         else
         {
@@ -97,7 +97,7 @@ public class Character : MonoBehaviour {
         }
     }
 
-    private void TakeDamage(Weapon weapon, float impact)
+    private void TakeDamage(Weapon weapon, float impact, float stuntime)
     {
         currentLife -= weapon.damage;
 
@@ -109,6 +109,11 @@ public class Character : MonoBehaviour {
             default:
                 AddImpact(weapon.owner.transform.TransformDirection(Vector3.forward), impact);
                 break;
+        }
+        if (stuntime > 0)
+        {
+            GetComponent<MovementThirdPerson>().stuntimmer = stuntime;
+            GetComponent<MovementThirdPerson>().stunned = true;
         }
     }
 

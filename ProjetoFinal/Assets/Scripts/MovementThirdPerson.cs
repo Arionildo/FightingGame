@@ -14,6 +14,8 @@ public class MovementThirdPerson : MonoBehaviour
     public float currentSpeed = 0;
     public float gravity = 9.0F;
     private Animator animator;
+    public bool stunned = false;
+    public float stuntimmer = 0f;
 
     // Use this for initialization
     private void Start()
@@ -23,7 +25,21 @@ public class MovementThirdPerson : MonoBehaviour
 
     void Update()
     {
-        GetCommand();
+        if (!stunned)
+        {
+            GetCommand();
+        }
+        else if(stuntimmer > 0)
+        {
+            stuntimmer -= 1 * Time.deltaTime;
+            if (stuntimmer <= 0)
+            {
+                stuntimmer = 0;
+                stunned = false;
+            }
+        }
+        
+        
     }
 
     private void GetCommand()
