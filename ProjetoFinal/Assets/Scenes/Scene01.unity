@@ -410,6 +410,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 269.072
       objectReference: {fileID: 0}
+    - target: {fileID: 114799848971340344, guid: 737ddb58b9fb0814d911d43cac3840b0,
+        type: 2}
+      propertyPath: dash
+      value: Dash2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 737ddb58b9fb0814d911d43cac3840b0, type: 2}
   m_IsPrefabParent: 0
@@ -594,6 +599,11 @@ Prefab:
     - target: {fileID: 4129916299123164, guid: cedcf8b64fec8504bac47c636ce74200, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 89.07201
+      objectReference: {fileID: 0}
+    - target: {fileID: 114681663555277830, guid: cedcf8b64fec8504bac47c636ce74200,
+        type: 2}
+      propertyPath: dash
+      value: Dash1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cedcf8b64fec8504bac47c636ce74200, type: 2}

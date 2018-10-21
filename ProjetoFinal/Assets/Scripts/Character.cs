@@ -79,7 +79,7 @@ public class Character : MonoBehaviour {
             Weapon weapon = other.GetComponent<Weapon>();
             if (other.tag.Equals("Weapon"))
                 if (!id.Equals(weapon.owner.id))
-                    TakeDamage(weapon, 100f,0.5f);
+                    TakeDamage(weapon, 100f, 0.5f);
 
             if (other.tag.Equals("Special"))
                 if (!id.Equals(weapon.owner.id))
