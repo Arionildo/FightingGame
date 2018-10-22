@@ -136,8 +136,7 @@ public class Character : MonoBehaviour {
         }
         if (stuntime > 0)
         {
-            GetComponent<MovementThirdPerson>().stuntimmer = stuntime;
-            GetComponent<MovementThirdPerson>().stunned = true;
+            doStun(stuntime);
         }
     }
 
@@ -191,8 +190,11 @@ public class Character : MonoBehaviour {
                 cdShield = 0;
             }
         }
+    }
 
-        
-
+    public void doStun(float stuntime)
+    {
+        GetComponent<MovementThirdPerson>().stuntimmer = stuntime;
+        GetComponent<MovementThirdPerson>().stunned = true;
     }
 }

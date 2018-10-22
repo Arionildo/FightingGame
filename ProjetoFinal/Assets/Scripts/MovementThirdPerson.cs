@@ -38,9 +38,13 @@ public class MovementThirdPerson : MonoBehaviour
         }
         else if(stuntimmer > 0)
         {
+            animator.SetBool("Stunned", true);
+
             stuntimmer -= 1 * Time.deltaTime;
             if (stuntimmer <= 0)
             {
+                animator.SetBool("Stunned", false);
+                GetComponent<Animator>().enabled = true;
                 stuntimmer = 0;
                 stunned = false;
             }
