@@ -1651,15 +1651,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1807302249760938}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.07, y: 0.5, z: -0.89}
+  m_LocalRotation: {x: -0.000000084290775, y: 0.71280724, z: 0.00000008429102, w: -0.70136005}
+  m_LocalPosition: {x: 7.304395, y: 0.5, z: -0.81357116}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4216480418398416}
   - {fileID: 4917639246731968}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 269.072, z: 0}
 --- !u!4 &4677730226762374
 Transform:
   m_ObjectHideFlags: 1
@@ -2090,6 +2090,7 @@ MonoBehaviour:
   isDefending: 0
   shieldEnergy: 100
   cdShield: 0
+  weaponPlaceholder: {fileID: 1712107449777944}
 --- !u!114 &114799848971340344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2104,11 +2105,16 @@ MonoBehaviour:
   horizontal: Horizontal2
   vertical: Vertical2
   jump: Jump2
+  dash: Dash2
   moveDirection: {x: 0, y: -7.4666667, z: 0}
   speed: 6
   jumpSpeed: 8
   currentSpeed: 0
   gravity: 20
+  stunned: 0
+  stuntimmer: 0
+  initialDashTimer: 0.1
+  dashCooldown: -1
 --- !u!114 &114918132659235416
 MonoBehaviour:
   m_ObjectHideFlags: 1
