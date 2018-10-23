@@ -8,9 +8,11 @@ public class Character : MonoBehaviour {
     public int id;
     public float maxLife;
     public float currentLife;
-    public float energy;
+    public float energy = 100;
+    public float maxEnergy=100;
     public Text lifeText;
     public Slider barSlider;
+    public Slider barEnergySlider;
     public bool isAttacking;
     public float mass;
     public Vector3 impact = Vector3.zero;
@@ -20,7 +22,6 @@ public class Character : MonoBehaviour {
     private Renderer modelRenderer;
     private Collider modelCollider;
     public bool isDefending;
-    public float shieldEnergy = 100;
     public float cdShield = 0;
     public GameObject weaponPlaceholder;
     
@@ -29,6 +30,7 @@ public class Character : MonoBehaviour {
     {
         cc = GetComponent<CharacterController>();
         currentLife = maxLife;
+        weaponPlaceholder = GameObject.Find("WeaponPlaceholder");
         //modelRenderer = transform.Find("Model").GetComponent<Renderer>();
         //modelCollider = transform.Find("Model").transform.GetComponent<Collider>();
     }
@@ -99,10 +101,10 @@ public class Character : MonoBehaviour {
             Weapon weapon = other.GetComponent<Weapon>();
             if (other.tag.Equals("Weapon"))
                 if (!id.Equals(weapon.owner.id))
-                    shieldEnergy -= 15;
+                    energy -= 15;
 
             if (other.tag.Equals("Special"))
-                shieldEnergy -= 20;
+                energy -= 20;
         }
     }
 
@@ -111,13 +113,13 @@ public class Character : MonoBehaviour {
         foreach (Transform child in weaponPlaceholder.transform)
             Destroy(child.gameObject);
 
+        other.tag = "Weapon";
         Weapon weapon = other.GetComponent<Weapon>();
         weapon.transform.parent = weaponPlaceholder.transform;
         weapon.transform.position = weaponPlaceholder.transform.position;
         weapon.transform.rotation = weaponPlaceholder.transform.rotation;
         weapon.owner = this;
         weapon.enabled = true;
-        other.tag = "Weapon";
     }
 
     private void TakeDamage(Weapon weapon, float impact, float stuntime)
@@ -157,31 +159,32 @@ public class Character : MonoBehaviour {
 
     private void Defend()
     {
-        if (shieldEnergy <= 0)
+        if (energy <= 0)
         {
             cdShield = 5;
-            shieldEnergy = 1;
+            energy = 1;
             isDefending = false;
         }
-        if (shieldEnergy >= 0)
+        if (energy >= 0)
         {
             if (isDefending)
             {
-                shieldEnergy -= 5 * Time.deltaTime;
+                energy -= 5 * Time.deltaTime;
             }
             else
             {
-                if (shieldEnergy >= 100)
+                if (energy >= 100)
                 {
-                    shieldEnergy = 100;
+                    energy = 100;
                 }
                 else
                 {
-                    shieldEnergy += 15 * Time.deltaTime;
+                    energy += 15 * Time.deltaTime;
                 }
             }
         }
-        if(cdShield > 0)
+        barEnergySlider.value = (energy / maxEnergy) * 100;
+        if (cdShield > 0)
         {
             cdShield -= 1 * Time.deltaTime;
             if (cdShield <= 0)
