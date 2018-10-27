@@ -111,3 +111,4 @@ MonoBehaviour:
   owner: {fileID: 0}
   weaponCollider: {fileID: 0}
   skillType: 4
+  cooldown: 3

@@ -99,6 +99,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   weaponCollider: {fileID: 0}
   skillType: 1
+  cooldown: 2
 --- !u!135 &135863491930567350
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -11,9 +11,11 @@ public class Attack : MonoBehaviour
     [SerializeField] private KeyCode attackA;
     [SerializeField] private KeyCode attackB;
     [SerializeField] private KeyCode Defence;
+    [SerializeField] private float cooldownSkillA;
+    [SerializeField] private float cooldownSkillB;
+    private float keyTimer;
     private Animator animator;
     private bool isAttacking;
-    private float keyTimer;
     public string comboA;
     public string comboB;
     public Transform comboPlaceholder;
@@ -33,6 +35,8 @@ public class Attack : MonoBehaviour
         commandText.text = attackA.ToString() + " -> AttackA\n" +
                             attackB.ToString() + " -> AttackB\n" +
                             Defence.ToString() + " -> Defend";
+        
+        cooldownSkillB = skillB.GetComponent<Weapon>().cooldown;
     }
 
     // Update is called once per frame
@@ -53,18 +57,18 @@ public class Attack : MonoBehaviour
         {
             helperCurrentCombo = new String(currentCombo.OfType<char>().ToArray());
 
-            if (helperCurrentCombo.Contains(comboA))
+            if (helperCurrentCombo.Contains(comboA) && cooldownSkillA <= 0f)
             {
-                //EXECUTA A ANIMAÇÃO DO COMBO E LIMPA OS COMANDOS DIGITADOS PRA EVITAR LOOP
+                cooldownSkillA = skillA.GetComponent<Weapon>().cooldown;
                 currentCombo.Clear();
                 Weapon special = Instantiate(skillA, comboPlaceholder).GetComponent<Weapon>();
                 special.transform.parent = null;
                 special.owner = executor;
             }
 
-            if (helperCurrentCombo.Contains(comboB))
+            if (helperCurrentCombo.Contains(comboB) && cooldownSkillB <= 0f)
             {
-                //EXECUTA A ANIMAÇÃO DO COMBO E LIMPA OS COMANDOS DIGITADOS PRA EVITAR LOOP
+                cooldownSkillB = skillB.GetComponent<Weapon>().cooldown;
                 currentCombo.Clear();
                 Weapon special = Instantiate(skillB, comboPlaceholder).GetComponent<Weapon>();
                 special.transform.parent = null;
@@ -86,6 +90,8 @@ public class Attack : MonoBehaviour
         isAttacking = animator.GetCurrentAnimatorStateInfo(0).IsName(EAnimations.ATTACK01.ToString())
                     || animator.GetCurrentAnimatorStateInfo(0).IsName(EAnimations.ATTACK02.ToString());
         executor.isAttacking = isAttacking;
+        cooldownSkillA -= 1f * Time.deltaTime;
+        cooldownSkillB -= 1f * Time.deltaTime;
     }
 
     private void GetCommand()

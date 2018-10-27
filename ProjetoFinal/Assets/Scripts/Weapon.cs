@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour {
     public Character owner;
     public Collider weaponCollider;
     public ESkillType skillType;
+    public float cooldown;
 
 	// Use this for initialization
 	void Start () {

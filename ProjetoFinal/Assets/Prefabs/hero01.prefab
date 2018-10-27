@@ -2080,16 +2080,17 @@ MonoBehaviour:
   id: 2
   maxLife: 1000
   currentLife: 1000
-  energy: 1000
+  energy: 100
+  maxEnergy: 100
   lifeText: {fileID: 0}
   barSlider: {fileID: 0}
+  barEnergySlider: {fileID: 0}
   isAttacking: 0
   mass: 10
   impact: {x: 0, y: 0, z: 0}
   characterColor: {fileID: 2100000, guid: 067e0aeed436cd045b71ee072a68d20e, type: 2}
   deadColor: {fileID: 2100000, guid: 289270924bd17244da4dc9986d2af8f4, type: 2}
   isDefending: 0
-  shieldEnergy: 100
   cdShield: 0
   weaponPlaceholder: {fileID: 1807350982988202}
 --- !u!114 &114681663555277830

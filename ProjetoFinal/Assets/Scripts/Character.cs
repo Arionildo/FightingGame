@@ -30,7 +30,6 @@ public class Character : MonoBehaviour {
     {
         cc = GetComponent<CharacterController>();
         currentLife = maxLife;
-        weaponPlaceholder = GameObject.Find("WeaponPlaceholder");
         //modelRenderer = transform.Find("Model").GetComponent<Renderer>();
         //modelCollider = transform.Find("Model").transform.GetComponent<Collider>();
     }
@@ -113,13 +112,13 @@ public class Character : MonoBehaviour {
         foreach (Transform child in weaponPlaceholder.transform)
             Destroy(child.gameObject);
 
-        other.tag = "Weapon";
         Weapon weapon = other.GetComponent<Weapon>();
         weapon.transform.parent = weaponPlaceholder.transform;
         weapon.transform.position = weaponPlaceholder.transform.position;
         weapon.transform.rotation = weaponPlaceholder.transform.rotation;
         weapon.owner = this;
         weapon.enabled = true;
+        other.tag = "Weapon";
     }
 
     private void TakeDamage(Weapon weapon, float impact, float stuntime)
