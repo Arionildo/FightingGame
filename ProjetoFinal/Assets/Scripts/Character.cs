@@ -9,7 +9,8 @@ public class Character : MonoBehaviour {
     public float maxLife;
     public float currentLife;
     public float energy = 100;
-    public float maxEnergy=100;
+    public float maxEnergy = 100;
+    public Image fillBar;
     public Text lifeText;
     public Slider barSlider;
     public Slider barEnergySlider;
@@ -24,7 +25,10 @@ public class Character : MonoBehaviour {
     public bool isDefending;
     public float cdShield = 0;
     public GameObject weaponPlaceholder;
-    
+    Color activeShield = new Color32(174, 240, 255, 255);
+    Color upShieldColor = new Color32(12, 203, 255, 255);
+    Color downShieldColor = new Color32(145, 145, 145, 255);
+    public bool deactivatedShield = false;
 
     private void Start()
     {
@@ -128,7 +132,7 @@ public class Character : MonoBehaviour {
         switch (weapon.skillType)
         {
             case ESkillType.HOOK_STUN:
-                AddImpact(weapon.owner.transform.InverseTransformDirection(Vector3.forward), impact*2);
+                AddImpact(weapon.owner.transform.InverseTransformDirection(Vector3.forward), impact * 2);
                 break;
             default:
                 AddImpact(weapon.owner.transform.TransformDirection(Vector3.forward), impact);
@@ -158,8 +162,13 @@ public class Character : MonoBehaviour {
 
     private void Defend()
     {
+        if (cdShield <= 0 && energy >=100)
+        {
+            deactivatedShield = false;
+        }
         if (energy <= 0)
         {
+            deactivatedShield = true;
             cdShield = 5;
             energy = 1;
             isDefending = false;
@@ -168,10 +177,19 @@ public class Character : MonoBehaviour {
         {
             if (isDefending)
             {
+                fillBar.color = activeShield;
                 energy -= 5 * Time.deltaTime;
             }
             else
             {
+                if (deactivatedShield)
+                {
+                    fillBar.color = downShieldColor;
+                }
+                else
+                {
+                    fillBar.color = upShieldColor;
+                }
                 if (energy >= 100)
                 {
                     energy = 100;
@@ -192,6 +210,7 @@ public class Character : MonoBehaviour {
             }
         }
     }
+
 
     public void doStun(float stuntime)
     {

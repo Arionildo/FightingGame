@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SceneMaganer : MonoBehaviour
 {
     public Button buttonNewGame, buttonOptions, buttonExit, buttonVoltaMenu;
+    public Slider volumeSlider;
     public AudioSource audioData;
 
     void Start()
@@ -21,7 +22,7 @@ public class SceneMaganer : MonoBehaviour
 
     void Update()
     {
-
+       AudioListener.volume = volumeSlider.value;
     }
 
     public void ButtonClick(string ButtonFunc)
@@ -42,7 +43,7 @@ public class SceneMaganer : MonoBehaviour
             buttonExit.gameObject.SetActive(false);
             buttonVoltaMenu.gameObject.SetActive(true);
         }
-        else if (ButtonFunc == "FazAlgo")
+        else if (ButtonFunc == "Return")
         {
             buttonNewGame.gameObject.SetActive(true);
             buttonOptions.gameObject.SetActive(true);

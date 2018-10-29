@@ -596,6 +596,11 @@ Prefab:
       propertyPath: barEnergySlider
       value: 
       objectReference: {fileID: 70560840}
+    - target: {fileID: 114590761709152572, guid: 737ddb58b9fb0814d911d43cac3840b0,
+        type: 2}
+      propertyPath: fillBar
+      value: 
+      objectReference: {fileID: 1693337657}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 737ddb58b9fb0814d911d43cac3840b0, type: 2}
   m_IsPrefabParent: 0
@@ -1195,6 +1200,11 @@ Prefab:
       propertyPath: commandText
       value: 
       objectReference: {fileID: 112758786}
+    - target: {fileID: 114551734448613710, guid: cedcf8b64fec8504bac47c636ce74200,
+        type: 2}
+      propertyPath: fillBar
+      value: 
+      objectReference: {fileID: 1890407639}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cedcf8b64fec8504bac47c636ce74200, type: 2}
   m_IsPrefabParent: 0
@@ -1298,22 +1308,22 @@ Prefab:
     - target: {fileID: 224958162155529722, guid: ac8268cf2334ce749b400c2bd7809f45,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224958162155529722, guid: ac8268cf2334ce749b400c2bd7809f45,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224388031410665110, guid: ac8268cf2334ce749b400c2bd7809f45,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224388031410665110, guid: ac8268cf2334ce749b400c2bd7809f45,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114557549300063226, guid: ac8268cf2334ce749b400c2bd7809f45,
         type: 2}
@@ -1389,6 +1399,24 @@ Prefab:
       propertyPath: m_Name
       value: Player1SliderHealth
       objectReference: {fileID: 0}
+    - target: {fileID: 1733754730041498, guid: ac8268cf2334ce749b400c2bd7809f45, type: 2}
+      propertyPath: m_Name
+      value: FillHealth1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1978048221301572, guid: ac8268cf2334ce749b400c2bd7809f45, type: 2}
+      propertyPath: m_Name
+      value: FillHealth2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114469080468317022, guid: ac8268cf2334ce749b400c2bd7809f45,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114363280345497576, guid: ac8268cf2334ce749b400c2bd7809f45,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac8268cf2334ce749b400c2bd7809f45, type: 2}
   m_IsPrefabParent: 0
@@ -1409,7 +1437,7 @@ GameObject:
   - component: {fileID: 1693337658}
   - component: {fileID: 1693337657}
   m_Layer: 5
-  m_Name: Fill
+  m_Name: FillEnergy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1487,7 +1515,7 @@ GameObject:
   - component: {fileID: 1890407640}
   - component: {fileID: 1890407639}
   m_Layer: 5
-  m_Name: Fill
+  m_Name: FillEnergy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
