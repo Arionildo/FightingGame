@@ -4,10 +4,12 @@ using UnityEngine.UI;
 
 public class SceneMaganer : MonoBehaviour
 {
-    public Button buttonNewGame, buttonOptions, buttonExit, buttonReturn, buttonResume, buttonMenu;
+    public Button buttonNewGame, buttonOptions, buttonExit, buttonReturn, buttonResume, buttonMenu, Hero1Button, Hero2Button;
+    public GameObject CharSelect;
     public Text pauseText;
     public Slider volumeSlider;
     public AudioSource audioData;
+    public static string Player1, Player2;
     public bool gameIsPaused = false;
 
     void Start()
@@ -18,6 +20,7 @@ public class SceneMaganer : MonoBehaviour
             buttonOptions.gameObject.SetActive(true);
             buttonExit.gameObject.SetActive(true);
             buttonReturn.gameObject.SetActive(false);
+            CharSelect.gameObject.SetActive(false);
         }
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
@@ -38,6 +41,7 @@ public class SceneMaganer : MonoBehaviour
             AudioListener.volume = volumeSlider.value;
         }
        Pause();
+        
     }
 
     public void ButtonClick(string ButtonFunc)
@@ -48,8 +52,7 @@ public class SceneMaganer : MonoBehaviour
             buttonOptions.gameObject.SetActive(false);
             buttonExit.gameObject.SetActive(false);
             buttonReturn.gameObject.SetActive(false);
-            SceneManager.LoadScene("Scene01", LoadSceneMode.Single);
-            if (audioData != null) audioData.Stop();
+            CharSelect.gameObject.SetActive(true);
         }
         else if (ButtonFunc == "Options")
         {
@@ -103,6 +106,21 @@ public class SceneMaganer : MonoBehaviour
         {
             SceneManager.LoadScene("menu", LoadSceneMode.Single);
         }
+        else if (ButtonFunc == "Hero1" || ButtonFunc == "Hero2")
+        {
+            if (ButtonFunc == "Hero1")
+            {
+                Player1 = "Hero1";
+                Player2 = "Hero2";
+            }
+            if (ButtonFunc == "Hero2")
+            {
+                Player2 = "Hero1";
+                Player1 = "Hero2";
+            }
+            SceneManager.LoadScene("Scene01", LoadSceneMode.Single);
+            if (audioData != null) audioData.Stop();
+        }
         else
         {
 
@@ -114,6 +132,8 @@ public class SceneMaganer : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                Debug.Log("Player1 = " + Player1);
+                Debug.Log("Player2 = " + Player2);
                 if (gameIsPaused)
                 {
                     gameIsPaused = false;
