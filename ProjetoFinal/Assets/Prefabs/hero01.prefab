@@ -2056,9 +2056,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfcb4190268967344903be91b26cbe86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackA: 330
-  attackB: 333
-  Defence: 120
+  attackA: AttackA
+  attackB: AttackB
+  Defence: Defence
   cooldownSkillA: 0
   cooldownSkillB: 0
   comboA: QEE

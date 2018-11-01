@@ -745,11 +745,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 114230822611527812, guid: 737ddb58b9fb0814d911d43cac3840b0,
+    - target: {fileID: 114590761709152572, guid: 737ddb58b9fb0814d911d43cac3840b0,
         type: 2}
-      propertyPath: commandText
+      propertyPath: fillBar
       value: 
-      objectReference: {fileID: 707864261}
+      objectReference: {fileID: 1693337657}
     - target: {fileID: 114590761709152572, guid: 737ddb58b9fb0814d911d43cac3840b0,
         type: 2}
       propertyPath: lifeText
@@ -759,17 +759,17 @@ Prefab:
         type: 2}
       propertyPath: barSlider
       value: 
-      objectReference: {fileID: 883620555}
+      objectReference: {fileID: 1907903524}
     - target: {fileID: 114590761709152572, guid: 737ddb58b9fb0814d911d43cac3840b0,
         type: 2}
       propertyPath: barEnergySlider
       value: 
       objectReference: {fileID: 70560840}
-    - target: {fileID: 114590761709152572, guid: 737ddb58b9fb0814d911d43cac3840b0,
+    - target: {fileID: 114230822611527812, guid: 737ddb58b9fb0814d911d43cac3840b0,
         type: 2}
-      propertyPath: fillBar
+      propertyPath: commandText
       value: 
-      objectReference: {fileID: 1693337657}
+      objectReference: {fileID: 707864261}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 737ddb58b9fb0814d911d43cac3840b0, type: 2}
   m_IsPrefabParent: 0
@@ -1337,12 +1337,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 831023707}
---- !u!114 &883620555 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114444705826417282, guid: ac8268cf2334ce749b400c2bd7809f45,
-    type: 2}
-  m_PrefabInternal: {fileID: 1601656999}
-  m_Script: {fileID: -113659843, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &991803281
 Prefab:
   m_ObjectHideFlags: 0
@@ -1405,7 +1399,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1084442352
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1446,6 +1440,9 @@ MonoBehaviour:
   buttonReturn: {fileID: 691364917}
   buttonResume: {fileID: 432855242}
   buttonMenu: {fileID: 1539349609}
+  Hero1Button: {fileID: 0}
+  Hero2Button: {fileID: 0}
+  CharSelect: {fileID: 0}
   pauseText: {fileID: 654955886}
   volumeSlider: {fileID: 7085}
   audioData: {fileID: 0}
@@ -1911,7 +1908,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2088,6 +2085,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114354389131410858, guid: cedcf8b64fec8504bac47c636ce74200,
+        type: 2}
+      propertyPath: commandText
+      value: 
+      objectReference: {fileID: 112758786}
+    - target: {fileID: 114551734448613710, guid: cedcf8b64fec8504bac47c636ce74200,
+        type: 2}
+      propertyPath: fillBar
+      value: 
+      objectReference: {fileID: 1890407639}
     - target: {fileID: 114551734448613710, guid: cedcf8b64fec8504bac47c636ce74200,
         type: 2}
       propertyPath: lifeText
@@ -2103,16 +2110,6 @@ Prefab:
       propertyPath: barEnergySlider
       value: 
       objectReference: {fileID: 1173366088}
-    - target: {fileID: 114354389131410858, guid: cedcf8b64fec8504bac47c636ce74200,
-        type: 2}
-      propertyPath: commandText
-      value: 
-      objectReference: {fileID: 112758786}
-    - target: {fileID: 114551734448613710, guid: cedcf8b64fec8504bac47c636ce74200,
-        type: 2}
-      propertyPath: fillBar
-      value: 
-      objectReference: {fileID: 1890407639}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cedcf8b64fec8504bac47c636ce74200, type: 2}
   m_IsPrefabParent: 0
@@ -2262,8 +2259,8 @@ RectTransform:
   m_Father: {fileID: 1485649552}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2529,22 +2526,22 @@ Prefab:
     - target: {fileID: 224958162155529722, guid: ac8268cf2334ce749b400c2bd7809f45,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224958162155529722, guid: ac8268cf2334ce749b400c2bd7809f45,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224388031410665110, guid: ac8268cf2334ce749b400c2bd7809f45,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224388031410665110, guid: ac8268cf2334ce749b400c2bd7809f45,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114557549300063226, guid: ac8268cf2334ce749b400c2bd7809f45,
         type: 2}
@@ -2796,6 +2793,12 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1890407637}
+--- !u!114 &1907903524 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114444705826417282, guid: ac8268cf2334ce749b400c2bd7809f45,
+    type: 2}
+  m_PrefabInternal: {fileID: 1601656999}
+  m_Script: {fileID: -113659843, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1976693346
 GameObject:
   m_ObjectHideFlags: 0
