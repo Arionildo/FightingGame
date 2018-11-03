@@ -21,6 +21,7 @@ public class SceneMaganer : MonoBehaviour
             buttonExit.gameObject.SetActive(true);
             buttonReturn.gameObject.SetActive(false);
             CharSelect.gameObject.SetActive(false);
+            volumeSlider.gameObject.SetActive(false);
         }
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
@@ -29,6 +30,7 @@ public class SceneMaganer : MonoBehaviour
             buttonOptions.gameObject.SetActive(false);
             buttonMenu.gameObject.SetActive(false);
             buttonReturn.gameObject.SetActive(false);
+            volumeSlider.gameObject.SetActive(false);
         }
         audioData = GetComponent<AudioSource>();
         if (audioData != null) audioData.Play(0);
@@ -51,8 +53,9 @@ public class SceneMaganer : MonoBehaviour
             buttonNewGame.gameObject.SetActive(false);
             buttonOptions.gameObject.SetActive(false);
             buttonExit.gameObject.SetActive(false);
-            buttonReturn.gameObject.SetActive(false);
+            buttonReturn.gameObject.SetActive(true);
             CharSelect.gameObject.SetActive(true);
+            volumeSlider.gameObject.SetActive(false);
         }
         else if (ButtonFunc == "Options")
         {
@@ -62,6 +65,7 @@ public class SceneMaganer : MonoBehaviour
                 buttonOptions.gameObject.SetActive(false);
                 buttonExit.gameObject.SetActive(false);
                 buttonReturn.gameObject.SetActive(true);
+                volumeSlider.gameObject.SetActive(true);
             }
             if (SceneManager.GetActiveScene().buildIndex == 1)
             {
@@ -69,16 +73,22 @@ public class SceneMaganer : MonoBehaviour
                 buttonOptions.gameObject.SetActive(false);
                 buttonMenu.gameObject.SetActive(false);
                 buttonReturn.gameObject.SetActive(true);
+                volumeSlider.gameObject.SetActive(true);
             }
         }
         else if (ButtonFunc == "Return")
         {
+            if(CharSelect!=null)
+            {
+                CharSelect.gameObject.SetActive(false);
+            }
             if (SceneManager.GetActiveScene().buildIndex == 0)
             {
                 buttonNewGame.gameObject.SetActive(true);
                 buttonOptions.gameObject.SetActive(true);
                 buttonExit.gameObject.SetActive(true);
                 buttonReturn.gameObject.SetActive(false);
+                volumeSlider.gameObject.SetActive(false);
             }
             if (SceneManager.GetActiveScene().buildIndex == 1)
             {
@@ -86,6 +96,7 @@ public class SceneMaganer : MonoBehaviour
                 buttonOptions.gameObject.SetActive(true);
                 buttonMenu.gameObject.SetActive(true);
                 buttonReturn.gameObject.SetActive(false);
+                volumeSlider.gameObject.SetActive(false);
             }
         }
         else if (ButtonFunc == "Exit")
@@ -143,6 +154,7 @@ public class SceneMaganer : MonoBehaviour
                     buttonOptions.gameObject.SetActive(false);
                     buttonMenu.gameObject.SetActive(false);
                     buttonReturn.gameObject.SetActive(false);
+                    volumeSlider.gameObject.SetActive(false);
                 }
                 else
                 {
@@ -153,6 +165,7 @@ public class SceneMaganer : MonoBehaviour
                     buttonOptions.gameObject.SetActive(true);
                     buttonMenu.gameObject.SetActive(true);
                     buttonReturn.gameObject.SetActive(false);
+                    volumeSlider.gameObject.SetActive(false);
                 }
             }
         }
