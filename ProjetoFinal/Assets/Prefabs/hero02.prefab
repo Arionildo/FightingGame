@@ -2039,9 +2039,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfcb4190268967344903be91b26cbe86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackA: 269
-  attackB: 270
-  Defence: 271
+  attackA: AttackA
+  attackB: AttackB
+  defence: Defence
+  cooldownSkillA: 0
+  cooldownSkillB: 0
   comboA: --+
   comboB: ++-
   comboPlaceholder: {fileID: 4216480418398416}
@@ -2065,6 +2067,7 @@ MonoBehaviour:
   owner: {fileID: 114590761709152572}
   weaponCollider: {fileID: 135281500827771748}
   skillType: 0
+  cooldown: 0
 --- !u!114 &114590761709152572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2081,6 +2084,7 @@ MonoBehaviour:
   currentLife: 1000
   energy: 100
   maxEnergy: 100
+  fillBar: {fileID: 0}
   lifeText: {fileID: 0}
   barSlider: {fileID: 0}
   barEnergySlider: {fileID: 0}
@@ -2092,6 +2096,7 @@ MonoBehaviour:
   isDefending: 0
   cdShield: 0
   weaponPlaceholder: {fileID: 1712107449777944}
+  deactivatedShield: 0
 --- !u!114 &114799848971340344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2131,6 +2136,7 @@ MonoBehaviour:
   owner: {fileID: 114590761709152572}
   weaponCollider: {fileID: 135472915769626646}
   skillType: 0
+  cooldown: 0
 --- !u!135 &135281500827771748
 SphereCollider:
   m_ObjectHideFlags: 1

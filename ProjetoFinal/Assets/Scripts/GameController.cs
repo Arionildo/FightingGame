@@ -28,6 +28,9 @@ public class GameController : MonoBehaviour
             character.id = instance.characterCount;
         }
 
+        foreach (string joy in Input.GetJoystickNames())
+            print(joy);
+
     }
 
     void Update()
