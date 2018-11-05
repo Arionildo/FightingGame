@@ -5,11 +5,11 @@ using UnityEngine.UI;
 public class SceneMaganer : MonoBehaviour
 {
     public Button buttonNewGame, buttonOptions, buttonExit, buttonReturn, buttonResume, buttonMenu, Hero1Button, Hero2Button;
-    public GameObject CharSelect;
-    public Text pauseText;
+    public GameObject CharSelect, AfterCharSelect;
     public Slider volumeSlider;
     public AudioSource audioData;
     public static string Player1, Player2;
+    public Text PauseTextScene1;
     public bool gameIsPaused = false;
 
     void Start()
@@ -19,19 +19,19 @@ public class SceneMaganer : MonoBehaviour
             buttonNewGame.gameObject.SetActive(true);
             buttonOptions.gameObject.SetActive(true);
             buttonExit.gameObject.SetActive(true);
-            buttonReturn.gameObject.SetActive(false);
             CharSelect.gameObject.SetActive(false);
-            volumeSlider.gameObject.SetActive(false);
+
         }
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            pauseText.gameObject.SetActive(false);
             buttonResume.gameObject.SetActive(false);
             buttonOptions.gameObject.SetActive(false);
             buttonMenu.gameObject.SetActive(false);
-            buttonReturn.gameObject.SetActive(false);
-            volumeSlider.gameObject.SetActive(false);
+            PauseTextScene1.gameObject.SetActive(false);
         }
+        buttonReturn.gameObject.SetActive(false);
+        volumeSlider.gameObject.SetActive(false);
+        AfterCharSelect.gameObject.SetActive(false);
         audioData = GetComponent<AudioSource>();
         if (audioData != null) audioData.Play(0);
     }
@@ -42,8 +42,8 @@ public class SceneMaganer : MonoBehaviour
         {
             AudioListener.volume = volumeSlider.value;
         }
-       Pause();
-        
+        Pause();
+
     }
 
     public void ButtonClick(string ButtonFunc)
@@ -78,7 +78,7 @@ public class SceneMaganer : MonoBehaviour
         }
         else if (ButtonFunc == "Return")
         {
-            if(CharSelect!=null)
+            if (CharSelect != null)
             {
                 CharSelect.gameObject.SetActive(false);
             }
@@ -107,7 +107,6 @@ public class SceneMaganer : MonoBehaviour
         {
             gameIsPaused = false;
             Time.timeScale = 1.0f;
-            pauseText.gameObject.SetActive(false);
             buttonResume.gameObject.SetActive(false);
             buttonOptions.gameObject.SetActive(false);
             buttonMenu.gameObject.SetActive(false);
@@ -115,10 +114,16 @@ public class SceneMaganer : MonoBehaviour
         }
         else if (ButtonFunc == "Menu")
         {
-            SceneManager.LoadScene("menu", LoadSceneMode.Single);
+            buttonResume.gameObject.SetActive(false);
+            buttonOptions.gameObject.SetActive(false);
+            buttonMenu.gameObject.SetActive(false);
+            AfterCharSelect.gameObject.SetActive(true);
         }
         else if (ButtonFunc == "Hero1" || ButtonFunc == "Hero2")
         {
+            CharSelect.gameObject.SetActive(false);
+            AfterCharSelect.gameObject.SetActive(true);
+            buttonReturn.gameObject.SetActive(false);
             if (ButtonFunc == "Hero1")
             {
                 Player1 = "Hero1";
@@ -129,8 +134,35 @@ public class SceneMaganer : MonoBehaviour
                 Player2 = "Hero1";
                 Player1 = "Hero2";
             }
-            SceneManager.LoadScene("Scene01", LoadSceneMode.Single);
-            if (audioData != null) audioData.Stop();
+        }
+        else if (ButtonFunc == "Confirm")
+        {
+            if (SceneManager.GetActiveScene().buildIndex == 0)
+            {
+                SceneManager.LoadScene("Scene01", LoadSceneMode.Single);
+                if (audioData != null) audioData.Stop();
+            }
+            if (SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                SceneManager.LoadScene("menu", LoadSceneMode.Single);
+                if (audioData != null) audioData.Play(0);
+            }
+        }
+        else if (ButtonFunc == "X")
+        {
+            if (SceneManager.GetActiveScene().buildIndex == 0)
+            {
+                CharSelect.gameObject.SetActive(true);
+                buttonReturn.gameObject.SetActive(true);
+            }
+
+            if (SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                buttonResume.gameObject.SetActive(true);
+                buttonOptions.gameObject.SetActive(true);
+                buttonMenu.gameObject.SetActive(true);
+            }
+            AfterCharSelect.gameObject.SetActive(false);
         }
         else
         {
@@ -149,7 +181,7 @@ public class SceneMaganer : MonoBehaviour
                 {
                     gameIsPaused = false;
                     Time.timeScale = 1.0f;
-                    pauseText.gameObject.SetActive(false);
+                    PauseTextScene1.gameObject.SetActive(false);
                     buttonResume.gameObject.SetActive(false);
                     buttonOptions.gameObject.SetActive(false);
                     buttonMenu.gameObject.SetActive(false);
@@ -159,8 +191,8 @@ public class SceneMaganer : MonoBehaviour
                 else
                 {
                     gameIsPaused = true;
+                    PauseTextScene1.gameObject.SetActive(true);
                     Time.timeScale = 0.0f;
-                    pauseText.gameObject.SetActive(true);
                     buttonResume.gameObject.SetActive(true);
                     buttonOptions.gameObject.SetActive(true);
                     buttonMenu.gameObject.SetActive(true);
