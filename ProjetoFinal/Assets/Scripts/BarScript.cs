@@ -15,15 +15,6 @@ public class BarScript : MonoBehaviour
 
     public float BarYOffset = 2;
 
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            TestBar();
-        }
-    }
-
     public void ChangeResource(int amount)
     {
         currentResource += amount;
@@ -31,15 +22,6 @@ public class BarScript : MonoBehaviour
         barSlider.value = (currentResource / maxResource)*100;
         Debug.Log(barSlider.value);
     }
-
-    //private void PositionBar()
-    //{
-    //    Vector3 currentPos = transform.position;
-
-    //    Bar.position = new Vector3(currentPos.x, currentPos.y + BarYOffset, currentPos.z);
-
-    //    Bar.LookAt(Camera.main.transform);
-    //}
 
     private void TestBar()
     {

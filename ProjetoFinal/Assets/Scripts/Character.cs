@@ -20,8 +20,6 @@ public class Character : MonoBehaviour {
     private CharacterController cc;
     public Material characterColor;
     public Material deadColor;
-    private Renderer modelRenderer;
-    private Collider modelCollider;
     public bool isDefending;
     public float cdShield = 0;
     public GameObject weaponPlaceholder;
@@ -34,8 +32,6 @@ public class Character : MonoBehaviour {
     {
         cc = GetComponent<CharacterController>();
         currentLife = maxLife;
-        //modelRenderer = transform.Find("Model").GetComponent<Renderer>();
-        //modelCollider = transform.Find("Model").transform.GetComponent<Collider>();
     }
 
     private void Update()
@@ -49,10 +45,6 @@ public class Character : MonoBehaviour {
     {
         if (!IsAlive())
         {
-            if (modelRenderer != null)
-                modelRenderer.material = deadColor;
-            if (modelCollider != null)
-                modelCollider.enabled = false;
             lifeText.text = "DEAD";
             cc.enabled = false;
             Invoke("Respawn", 3f);
@@ -70,10 +62,6 @@ public class Character : MonoBehaviour {
 
     private void Respawn()
     {
-        if (modelRenderer != null)
-            modelRenderer.material = characterColor;
-        if (modelCollider != null)
-            modelCollider.enabled = true;
         currentLife = maxLife;
         cc.enabled = true;
     }

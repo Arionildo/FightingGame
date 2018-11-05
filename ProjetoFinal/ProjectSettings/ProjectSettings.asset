@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 14
-  productGUID: 00000000000000000000000000000000
+  productGUID: a32f24721f8cbc94983fd880e6fd904b
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   defaultScreenOrientation: 4
@@ -638,7 +638,7 @@ PlayerSettings:
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
   cloudProjectId: 7e8dceaa-e455-4faf-8987-977d35576338
-  projectName: 
+  projectName: ProjetoFinal
   organizationId: ari-1250313
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0

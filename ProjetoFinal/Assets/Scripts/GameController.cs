@@ -21,16 +21,13 @@ public class GameController : MonoBehaviour
 
     void InitGame()
     {
+        instance.characterCount = 0;
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Player"))
         {
             Character character = go.GetComponent<Character>();
             instance.characterCount++;
             character.id = instance.characterCount;
         }
-
-        foreach (string joy in Input.GetJoystickNames())
-            print(joy);
-
     }
 
     void Update()

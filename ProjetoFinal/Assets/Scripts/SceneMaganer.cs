@@ -43,7 +43,6 @@ public class SceneMaganer : MonoBehaviour
             AudioListener.volume = volumeSlider.value;
         }
         Pause();
-
     }
 
     public void ButtonClick(string ButtonFunc)
@@ -169,14 +168,13 @@ public class SceneMaganer : MonoBehaviour
 
         }
     }
+
     public void Pause()
     {
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetButtonDown("Pause"))
             {
-                Debug.Log("Player1 = " + Player1);
-                Debug.Log("Player2 = " + Player2);
                 if (gameIsPaused)
                 {
                     gameIsPaused = false;
