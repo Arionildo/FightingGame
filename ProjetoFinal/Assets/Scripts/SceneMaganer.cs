@@ -4,13 +4,13 @@ using UnityEngine.UI;
 
 public class SceneMaganer : MonoBehaviour
 {
-    public Button buttonNewGame, buttonOptions, buttonExit, buttonReturn, buttonResume, buttonMenu, Hero1Button, Hero2Button;
+    public Button buttonNewGame, buttonOptions, buttonExit, buttonReturn, buttonResume, buttonMenu;
     public GameObject CharSelect, AfterCharSelect;
     public Slider volumeSlider;
     public AudioSource audioData;
     public static string Player1, Player2;
     public Text PauseTextScene1;
-    public bool gameIsPaused = false;
+    public bool gameIsPaused = false, audioEnabled = true;
 
     void Start()
     {
@@ -40,7 +40,14 @@ public class SceneMaganer : MonoBehaviour
     {
         if (volumeSlider != null)
         {
-            AudioListener.volume = volumeSlider.value;
+            if (audioEnabled)
+            {
+                AudioListener.volume = volumeSlider.value;
+            }
+            else
+            {
+                AudioListener.volume = 0;
+            }
         }
         Pause();
     }
@@ -162,6 +169,17 @@ public class SceneMaganer : MonoBehaviour
                 buttonMenu.gameObject.SetActive(true);
             }
             AfterCharSelect.gameObject.SetActive(false);
+        }
+        else if (ButtonFunc == "Volume")
+        {
+            if (audioEnabled)
+            {
+                audioEnabled = false;
+            }
+            else
+            {
+                audioEnabled = true;
+            }
         }
         else
         {
