@@ -5,11 +5,10 @@ using UnityEngine.UI;
 public class SceneMaganer : MonoBehaviour
 {
     public Button buttonNewGame, buttonOptions, buttonExit, buttonReturn, buttonResume, buttonMenu;
-    public GameObject CharSelect, AfterCharSelect;
+    public GameObject CharSelect, AfterCharSelect, PauseTextScene1;
     public Slider volumeSlider;
     public AudioSource audioData;
     public static string Player1, Player2;
-    public Text PauseTextScene1;
     public bool gameIsPaused = false, audioEnabled = true;
 
     void Start()
