@@ -112,6 +112,7 @@ public class SceneMaganer : MonoBehaviour
         {
             gameIsPaused = false;
             Time.timeScale = 1.0f;
+            PauseTextScene1.gameObject.SetActive(false);
             buttonResume.gameObject.SetActive(false);
             buttonOptions.gameObject.SetActive(false);
             buttonMenu.gameObject.SetActive(false);
@@ -194,7 +195,6 @@ public class SceneMaganer : MonoBehaviour
             {
                 if (gameIsPaused)
                 {
-                    gameIsPaused = false;
                     Time.timeScale = 1.0f;
                     PauseTextScene1.gameObject.SetActive(false);
                     buttonResume.gameObject.SetActive(false);
@@ -202,10 +202,10 @@ public class SceneMaganer : MonoBehaviour
                     buttonMenu.gameObject.SetActive(false);
                     buttonReturn.gameObject.SetActive(false);
                     volumeSlider.gameObject.SetActive(false);
+                    gameIsPaused = false;
                 }
                 else
                 {
-                    gameIsPaused = true;
                     PauseTextScene1.gameObject.SetActive(true);
                     Time.timeScale = 0.0f;
                     buttonResume.gameObject.SetActive(true);
@@ -213,6 +213,7 @@ public class SceneMaganer : MonoBehaviour
                     buttonMenu.gameObject.SetActive(true);
                     buttonReturn.gameObject.SetActive(false);
                     volumeSlider.gameObject.SetActive(false);
+                    gameIsPaused = true;
                 }
             }
         }
