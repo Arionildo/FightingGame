@@ -2367,6 +2367,7 @@ MonoBehaviour:
   CharSelect: {fileID: 1376589202}
   AfterCharSelect: {fileID: 894395475}
   PauseTextScene1: {fileID: 0}
+  MechLogo: {fileID: 556160686}
   volumeSlider: {fileID: 1143165630}
   audioData: {fileID: 34900339}
   gameIsPaused: 0

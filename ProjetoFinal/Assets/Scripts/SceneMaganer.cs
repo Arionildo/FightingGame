@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class SceneMaganer : MonoBehaviour
 {
     public Button buttonNewGame, buttonOptions, buttonExit, buttonReturn, buttonResume, buttonMenu;
-    public GameObject CharSelect, AfterCharSelect, PauseTextScene1;
+    public GameObject CharSelect, AfterCharSelect, PauseTextScene1, MechLogo;
     public Slider volumeSlider;
     public AudioSource audioData;
     public static string Player1, Player2;
@@ -150,6 +150,10 @@ public class SceneMaganer : MonoBehaviour
             }
             if (SceneManager.GetActiveScene().buildIndex == 1)
             {
+                if (Time.timeScale != 1.0f)
+                {
+                Time.timeScale = 1.0f;
+                }
                 SceneManager.LoadScene("menu", LoadSceneMode.Single);
                 if (audioData != null) audioData.Play(0);
             }
