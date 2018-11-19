@@ -154,6 +154,10 @@ public class SceneMaganer : MonoBehaviour
             }
             if (SceneManager.GetActiveScene().buildIndex == 1)
             {
+                if (Time.timeScale != 1.0f)
+                {
+                Time.timeScale = 1.0f;
+                }
                 SceneManager.LoadScene("menu", LoadSceneMode.Single);
                 if (audioData != null) audioData.Play(0);
             }
