@@ -10,4 +10,6 @@ public enum EAnimations
     ATTACK02 = 3,
     [Description("RUN")]
     RUN = 4,
+    [Description("Dash")]
+    DASH = 4,
 }

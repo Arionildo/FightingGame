@@ -93,6 +93,11 @@ public class MovementThirdPerson : MonoBehaviour
             speed *= 10f;
             transform.Translate(transform.TransformDirection(Vector3.forward) * speed * Time.deltaTime, Space.World);
             speed = initialSpeed;
+            animator.SetBool("Dash", true);
+        }
+        else
+        {
+            animator.SetBool("Dash", false);
         }
     }
 }
