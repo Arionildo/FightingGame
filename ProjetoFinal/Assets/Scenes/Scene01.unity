@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: c6249d585aaf10c4695ffbb9098b4e43, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -3515,6 +3515,7 @@ MonoBehaviour:
   CharSelect: {fileID: 0}
   AfterCharSelect: {fileID: 1600818876}
   PauseTextScene1: {fileID: 641740798}
+  MechLogo: {fileID: 0}
   volumeSlider: {fileID: 7085}
   audioData: {fileID: 0}
   gameIsPaused: 0
