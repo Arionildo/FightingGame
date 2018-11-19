@@ -28,6 +28,8 @@ public class Character : MonoBehaviour {
     Color downShieldColor = new Color32(145, 145, 145, 255);
     public bool deactivatedShield = false;
 
+    public GameObject oilSplatter;
+
     private void Start()
     {
         cc = GetComponent<CharacterController>();
@@ -81,7 +83,11 @@ public class Character : MonoBehaviour {
             Weapon weapon = other.GetComponent<Weapon>();
             if (other.tag.Equals("Weapon"))
                 if (!id.Equals(weapon.owner.id))
+                {
                     TakeDamage(weapon, 100f, 0.5f);
+                    
+                }
+                    
 
             if (other.tag.Equals("Special"))
                 if (!id.Equals(weapon.owner.id))
@@ -116,7 +122,8 @@ public class Character : MonoBehaviour {
     private void TakeDamage(Weapon weapon, float impact, float stuntime)
     {
         currentLife -= weapon.damage;
-
+        GameObject oilSplatterInst = Instantiate(oilSplatter, weapon.transform.Find("spawnParticle").transform ) as GameObject;
+        oilSplatterInst.transform.parent = null;
         switch (weapon.skillType)
         {
             case ESkillType.HOOK_STUN:
