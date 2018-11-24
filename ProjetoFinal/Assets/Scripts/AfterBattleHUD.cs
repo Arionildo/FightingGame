@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AfterBattleHUD : MonoBehaviour
 {
@@ -57,34 +58,36 @@ public class AfterBattleHUD : MonoBehaviour
         {
             for (int j = 0; j < 3; j++)
             {
-                if (playersCount > i + 1)
+                if (playersCount >= i + 1)
                 {
                     if (j == 0 || j == 1)
                     {
-                        //matrixHUD[i, j].gameObject.GetComponent<Sprite>().texture.
+                        matrixHUD[i, j].gameObject.SetActive(true);
+                    }
+                    if (j == 1)
+                    {
+                        matrixHUD[i, j].gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Teste");
                     }
                     if (j == 2)
                     {
-                        matrixHUD[i, j].gameObject.GetComponent<TextEditor>().text = "";
-
+                        matrixHUD[i, j].gameObject.GetComponent<Text>().text = "";
                     }
                 }
-                else if(playersCount < i+1)
+            else if (playersCount < i + 1)
+            {
+                if (j == 0 || j == 1)
                 {
-                    if (j == 0 || j == 1)
-                    {
-                        matrixHUD[i, j].gameObject.GetComponent<SpriteRenderer>().gameObject.SetActive(false);
-                    }
-                    if (j == 2)
-                    {
-                        matrixHUD[i, j].gameObject.GetComponent<TextEditor>().text = "";
-
-                    }
+                    matrixHUD[i, j].gameObject.SetActive(false);
                 }
-                else
+                if (j == 2)
                 {
-
+                    matrixHUD[i, j].gameObject.GetComponent<Text>().text = "";
                 }
+            }
+            else
+            {
+
+            }
             }
         }
     }
