@@ -122,7 +122,8 @@ public class Character : MonoBehaviour {
     private void TakeDamage(Weapon weapon, float impact, float stuntime)
     {
         currentLife -= weapon.damage;
-        GameObject oilSplatterInst = Instantiate(oilSplatter, weapon.transform.Find("spawnParticle").transform ) as GameObject;
+        Transform targetToSpawnFX = weapon.transform.Find("spawnParticle") != null ? weapon.transform.Find("spawnParticle").transform : weapon.transform;
+        GameObject oilSplatterInst = Instantiate(oilSplatter, targetToSpawnFX) as GameObject;
         oilSplatterInst.transform.parent = null;
         switch (weapon.skillType)
         {

@@ -36,7 +36,23 @@ public class Attack : MonoBehaviour
         attackA += executor.id;
         attackB += executor.id;
         defence += executor.id;
+        SetTextAttackCommand();
+        cooldownSkillB = skillB.GetComponent<Weapon>().cooldown;
+    }
 
+    // Update is called once per frame
+    private void Update()
+    {
+        UpdateStatus();
+        if ( !GetComponent<MovementThirdPerson>().stunned )
+        {
+            GetCommand();
+        }
+        UpdateKeyTimer();
+    }
+
+    private void SetTextAttackCommand()
+    {
         SerializedObject inputManager = new SerializedObject(AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/InputManager.asset")[0]);
         SerializedProperty axisArray = inputManager.FindProperty("m_Axes");
         string commandTextAttackA = null;
@@ -58,19 +74,6 @@ public class Attack : MonoBehaviour
         commandText.text = commandTextAttackA + " -> AttackA\n" +
                             commandTextAttackB + " -> AttackB\n" +
                             commandTextDefence + " -> Guard";
-        
-        cooldownSkillB = skillB.GetComponent<Weapon>().cooldown;
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        UpdateStatus();
-        if ( !GetComponent<MovementThirdPerson>().stunned )
-        {
-            GetCommand();
-        }
-        UpdateKeyTimer();
     }
 
     private void UpdateKeyTimer()
