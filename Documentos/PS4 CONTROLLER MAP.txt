@@ -23,3 +23,5 @@ Axes:
     R2              = 6th Axis (-1.0f to 1.0f range, unpressed is -1.0f)
     DPadX           = 7th Axis
     DPadY           = 8th Axis (Inverted?)
+
+NOTES: "joystick button 0" means that any joystick will get "button 0" pressed. To specify which joystick will get "button 0" pressed, add the joystick index like "joystick 1 button 0", "joystick 2 button 0", and so on.
