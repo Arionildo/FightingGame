@@ -2,15 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Attack : MonoBehaviour
 {
     [SerializeField] private const float maxKeyComboTimer = 2f;
-    [SerializeField] private KeyCode attackA;
-    [SerializeField] private KeyCode attackB;
-    [SerializeField] private KeyCode Defence;
+    [SerializeField] private string attackA = "AttackA";
+    [SerializeField] private string attackB = "AttackB";
+    [SerializeField] private string defence = "Defence";
     [SerializeField] private float cooldownSkillA;
     [SerializeField] private float cooldownSkillB;
     private float keyTimer;
@@ -25,7 +26,6 @@ public class Attack : MonoBehaviour
     public Queue currentCombo;
     public string helperCurrentCombo;
     public Text commandText;
-    public GameObject shield;
 
     // Use this for initialization
     private void Start()
@@ -33,10 +33,7 @@ public class Attack : MonoBehaviour
         animator = GetComponent<Animator>();
         currentCombo = new Queue();
         executor = GetComponent<Character>();
-        commandText.text = attackA.ToString() + " -> AttackA\n" +
-                            attackB.ToString() + " -> AttackB\n" +
-                            Defence.ToString() + " -> Defend";
-        
+        SetTextAttackCommand();
         cooldownSkillB = skillB.GetComponent<Weapon>().cooldown;
     }
 
@@ -44,11 +41,36 @@ public class Attack : MonoBehaviour
     private void Update()
     {
         UpdateStatus();
-        if ( !GetComponent<MovementThirdPerson>().stunned )
+        if (!GetComponent<MovementThirdPerson>().stunned)
         {
             GetCommand();
         }
         UpdateKeyTimer();
+    }
+
+    private void SetTextAttackCommand()
+    {
+        SerializedObject inputManager = new SerializedObject(AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/InputManager.asset")[0]);
+        SerializedProperty axisArray = inputManager.FindProperty("m_Axes");
+        string commandTextAttackA = null;
+        string commandTextAttackB = null;
+        string commandTextDefence = null;
+        for (int i = 0; i < axisArray.arraySize; ++i)
+        {
+            var axis = axisArray.GetArrayElementAtIndex(i);
+            var axisName = axis.FindPropertyRelative("m_Name").stringValue;
+
+            if (axisName.Equals(attackA))
+                commandTextAttackA = axis.FindPropertyRelative("positiveButton").stringValue;
+            else if (axisName.Equals(attackB))
+                commandTextAttackB = axis.FindPropertyRelative("positiveButton").stringValue;
+            else if (axisName.Equals(defence))
+                commandTextDefence = axis.FindPropertyRelative("positiveButton").stringValue;
+        }
+
+        commandText.text = commandTextAttackA + " -> AttackA\n" +
+                            commandTextAttackB + " -> AttackB\n" +
+                            commandTextDefence + " -> Guard";
     }
 
     private void UpdateKeyTimer()
@@ -80,7 +102,8 @@ public class Attack : MonoBehaviour
             {
                 keyTimer = maxKeyComboTimer / 4;
             }
-        } else
+        }
+        else
         {
             helperCurrentCombo = null;
         }
@@ -101,45 +124,30 @@ public class Attack : MonoBehaviour
         {
             if (!executor.isDefending)
             {
-                if (Input.GetKeyDown(attackA))
+                if (Input.GetButtonDown(attackA) || Input.GetButtonDown(attackB))
+                    keyTimer = maxKeyComboTimer;
+
+                if (Input.GetButtonDown(attackA))
                 {
                     animator.SetTrigger(EAnimations.ATTACK01.ToString());
+                    currentCombo.Enqueue('Q');
                 }
 
-                if (Input.GetKeyDown(attackB))
+                if (Input.GetButtonDown(attackB))
                 {
                     animator.SetTrigger(EAnimations.ATTACK02.ToString());
+                    currentCombo.Enqueue('E');
                 }
             }
 
-            if (Input.GetKey(Defence) && executor.cdShield == 0 && executor.isDefending == false)
+            if (Input.GetButtonDown(defence) && executor.cdShield == 0)
             {
                 executor.isDefending = true;
-                
             }
-            else if (Input.GetKeyUp(Defence))
+            else if (Input.GetButtonUp(defence))
             {
                 executor.isDefending = false;
             }
         }
     }
-
-    void OnGUI()
-    {
-        Event e = Event.current;
-        if (e.type == EventType.KeyDown && e.character.ToString() != "\0")
-        {
-            keyTimer = maxKeyComboTimer;
-            try
-            {
-                if (Input.GetKeyDown(attackA) || Input.GetKeyDown(attackB))
-                    currentCombo.Enqueue(Char.ToUpper(e.character));
-            } catch (Exception ex)
-            {
-                Debug.Log(ex.StackTrace);
-            }
-        }
-    }
-
-
 }

@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 114551734448613710}
   - component: {fileID: 114681663555277830}
   - component: {fileID: 114354389131410858}
+  - component: {fileID: 136293847106233890}
   m_Layer: 0
   m_Name: hero01
   m_TagString: Player
@@ -2115,11 +2116,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfcb4190268967344903be91b26cbe86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackA: AttackA
-  attackB: AttackB
-  defence: Defence
-  cooldownSkillA: 0
-  cooldownSkillB: 0
+  attackA: AttackA1
+  attackB: AttackB1
+  defence: Defence1
+  cooldownSkillA: 2
+  cooldownSkillB: 3
   comboA: QEE
   comboB: EEQ
   comboPlaceholder: {fileID: 4548017554097252}
@@ -2223,6 +2224,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &136293847106233890
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1032453553741380}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.3
+  m_Height: 10
+  m_Direction: 1
+  m_Center: {x: 0, y: 5.38, z: 0}
 --- !u!137 &137856936671303320
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

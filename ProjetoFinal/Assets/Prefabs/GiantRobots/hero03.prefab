@@ -560,7 +560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1584601078193008
 GameObject:
   m_ObjectHideFlags: 1
@@ -2126,11 +2126,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfcb4190268967344903be91b26cbe86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackA: AttackA
-  attackB: AttackB
-  defence: Defence
-  cooldownSkillA: 0
-  cooldownSkillB: 0
+  attackA: AttackA3
+  attackB: AttackB3
+  defence: Defence3
+  cooldownSkillA: 2
+  cooldownSkillB: 3
   comboA: --+
   comboB: ++-
   comboPlaceholder: {fileID: 4962070954550496}
