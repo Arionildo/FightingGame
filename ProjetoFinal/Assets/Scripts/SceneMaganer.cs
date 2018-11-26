@@ -4,16 +4,19 @@ using UnityEngine.UI;
 
 public class SceneMaganer : MonoBehaviour
 {
-    public Button buttonNewGame, buttonOptions, buttonExit, buttonReturn, buttonResume, buttonMenu;
+    public Button buttonNewGame, buttonOptions, buttonExit, buttonReturn, buttonResume, buttonMenu, 
+        buttonHero1, buttonHero2, buttonHero3, buttonHero4;
+    public Text p1Text, p2Text, p3Text, p4Text;
     public GameObject CharSelect, AfterCharSelect, PauseTextScene1, MechLogo;
     public Slider volumeSlider;
     public AudioSource audioData;
-    public static string Player1, Player2;
-    public string refPlayer1, refPlayer2;
+    public string refPlayer1, refPlayer2, refPlayer3, refPlayer4;
+    public static string[] playerSelections = new string[4];
     public bool gameIsPaused = false, audioEnabled = true;
 
     void Start()
     {
+        setPlayerSelections();
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             buttonNewGame.gameObject.SetActive(true);
@@ -52,6 +55,14 @@ public class SceneMaganer : MonoBehaviour
         Pause();
     }
 
+    void setPlayerSelections()
+    {
+        for (int i = 0; i < playerSelections.Length; i++)
+        {
+            playerSelections[i] = "-";
+        }
+    }
+
     public void ButtonClick(string ButtonFunc)
     {
         if (ButtonFunc == "Start")
@@ -62,6 +73,7 @@ public class SceneMaganer : MonoBehaviour
             buttonReturn.gameObject.SetActive(true);
             CharSelect.gameObject.SetActive(true);
             volumeSlider.gameObject.SetActive(false);
+            preFillPlayerTexts();
         }
         else if (ButtonFunc == "Options")
         {
@@ -86,6 +98,7 @@ public class SceneMaganer : MonoBehaviour
         {
             if (CharSelect != null)
             {
+                cleanPlayerTexts();
                 CharSelect.gameObject.SetActive(false);
             }
             if (SceneManager.GetActiveScene().buildIndex == 0)
@@ -126,23 +139,56 @@ public class SceneMaganer : MonoBehaviour
             buttonMenu.gameObject.SetActive(false);
             AfterCharSelect.gameObject.SetActive(true);
         }
-        else if (ButtonFunc == "Hero1" || ButtonFunc == "Hero2")
+        else if (ButtonFunc == "Hero1" || ButtonFunc == "Hero2" || ButtonFunc == "Hero3" || ButtonFunc == "Hero4")
         {
-            CharSelect.gameObject.SetActive(false);
-            AfterCharSelect.gameObject.SetActive(true);
             buttonReturn.gameObject.SetActive(false);
-            if (ButtonFunc == "Hero1")
+            for (int i = 0; i < playerSelections.Length; i++)
             {
-                Player1 = "Hero1";
-                Player2 = "Hero2";
+                if (playerSelections[i] == "-")
+                {
+                    if (ButtonFunc == "Hero1")
+                    {
+                        buttonHero1.gameObject.SetActive(false);
+                        playerSelections[i] = "Hero1";
+                        break;
+                    }
+                    else if (ButtonFunc == "Hero2")
+                    {
+                        buttonHero2.gameObject.SetActive(false);
+                        playerSelections[i] = "Hero2";
+                        break;
+                    }
+                    else if (ButtonFunc == "Hero3")
+                    {
+                        buttonHero3.gameObject.SetActive(false);
+                        playerSelections[i] = "Hero3";
+                        break;
+                    }
+                    else if (ButtonFunc == "Hero4")
+                    {
+                        buttonHero4.gameObject.SetActive(false);
+                        playerSelections[i] = "Hero4";
+                        break;
+                    }
+                    else
+                    {
+
+                    }
+                }
             }
-            if (ButtonFunc == "Hero2")
+            refPlayer1 = playerSelections[0];
+            p1Text.text = "P1 "+ refPlayer1;
+            refPlayer2 = playerSelections[1];
+            p2Text.text = "P2 " + refPlayer2;
+            refPlayer3 = playerSelections[2];
+            p3Text.text = "P3 " + refPlayer3;
+            refPlayer4 = playerSelections[3];
+            p4Text.text = "P4 " + refPlayer4;
+            if (playerSelections[0] != "-" && playerSelections[1] != "-" && playerSelections[2] != "-" && playerSelections[3] != "-")
             {
-                Player2 = "Hero1";
-                Player1 = "Hero2";
+                CharSelect.gameObject.SetActive(false);
+                AfterCharSelect.gameObject.SetActive(true);
             }
-            refPlayer2 = Player2;
-            refPlayer1 = Player1;
         }
         else if (ButtonFunc == "Confirm")
         {
@@ -167,6 +213,8 @@ public class SceneMaganer : MonoBehaviour
             {
                 CharSelect.gameObject.SetActive(true);
                 buttonReturn.gameObject.SetActive(true);
+                setPlayerSelections();
+                cleanPlayerTexts();
             }
 
             if (SceneManager.GetActiveScene().buildIndex == 1)
@@ -192,6 +240,22 @@ public class SceneMaganer : MonoBehaviour
         {
 
         }
+    }
+
+    void cleanPlayerTexts()
+    {
+        p1Text.text = "";
+        p2Text.text = "";
+        p3Text.text = "";
+        p4Text.text = "";
+    }
+
+    void preFillPlayerTexts()
+    {
+        p1Text.text = "P1 - ";
+        p2Text.text = "P2 - ";
+        p3Text.text = "P3 - ";
+        p4Text.text = "P4 - ";
     }
 
     public void Pause()
