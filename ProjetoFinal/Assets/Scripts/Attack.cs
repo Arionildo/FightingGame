@@ -25,6 +25,7 @@ public class Attack : MonoBehaviour
     public Queue currentCombo;
     public string helperCurrentCombo;
     public Text commandText;
+    public GameObject shield;
 
     // Use this for initialization
     private void Start()
@@ -111,9 +112,11 @@ public class Attack : MonoBehaviour
                 }
             }
 
-            if (Input.GetKey(Defence) && executor.cdShield == 0)
+            if (Input.GetKey(Defence) && executor.cdShield == 0 && executor.isDefending == false)
             {
                 executor.isDefending = true;
+                GameObject shieldInstance = Instantiate(shield, transform);
+
             }
             else if (Input.GetKeyUp(Defence))
             {
