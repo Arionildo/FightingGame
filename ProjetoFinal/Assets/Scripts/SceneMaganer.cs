@@ -9,6 +9,7 @@ public class SceneMaganer : MonoBehaviour
     public Slider volumeSlider;
     public AudioSource audioData;
     public static string Player1, Player2;
+    public string refPlayer1, refPlayer2;
     public bool gameIsPaused = false, audioEnabled = true;
 
     void Start()
@@ -140,6 +141,8 @@ public class SceneMaganer : MonoBehaviour
                 Player2 = "Hero1";
                 Player1 = "Hero2";
             }
+            refPlayer2 = Player2;
+            refPlayer1 = Player1;
         }
         else if (ButtonFunc == "Confirm")
         {
