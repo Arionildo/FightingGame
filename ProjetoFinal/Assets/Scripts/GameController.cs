@@ -41,5 +41,9 @@ public class GameController : MonoBehaviour
         {
             Destroy(go, 1f);
         }
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Sparks"))
+        {
+            Destroy(go, 2f);
+        }
     }
 }
