@@ -12,7 +12,7 @@ public class AfterBattleHUD : MonoBehaviour
     public int ActivePlayers = 2;
     public GameObject refSceneManager;
     public string[] PlayerPosition = new string[4];
-
+    public GameObject scorePanel;
 
     // Use this for initialization
     void Start()
@@ -30,7 +30,7 @@ public class AfterBattleHUD : MonoBehaviour
     {
         if (hero1.gameObject.GetComponent<Character>().currentLife <= 0 || hero2.gameObject.GetComponent<Character>().currentLife <= 0)
         {
-            transform.Find("ScoreScreenChild").gameObject.SetActive(true);
+            scorePanel.gameObject.SetActive(true);
             matrixActivator(ActivePlayers);
             updatePlayerPosition();
         }
@@ -39,7 +39,7 @@ public class AfterBattleHUD : MonoBehaviour
     void startFunctions()
     {
         onStartPlayerPosition();
-        transform.Find("ScoreScreenChild").gameObject.SetActive(false);
+        scorePanel.gameObject.SetActive(false);
         matrixFiller();
     }
 
@@ -49,14 +49,11 @@ public class AfterBattleHUD : MonoBehaviour
         {
             PlayerPosition[i] = "-";
         }
-        //nota para modificar para 4 jogadores: remover as 2 linhas a baixo.
-        PlayerPosition[2] = "kk";
-        PlayerPosition[3] = "kk";
     }
 
     void updatePlayerPosition()
     {
-        if (hero1HP <=0 && !placedHero1)
+        if (hero1HP <= 0 && !placedHero1)
         {
             for (int i = PlayerPosition.Length-1; i < -1; i--)
             {
@@ -72,16 +69,16 @@ public class AfterBattleHUD : MonoBehaviour
                         PlayerPosition[i] = "Player2";
                         break;
                     }
-                    //else if(refSceneManager.GetComponent<SceneMaganer>().refPlayer3 == "hero1")
-                    //{
-                    //    PlayerPosition[i] = "Player3";
-                    //    break;
-                    //}
-                    //else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer4 == "hero1")
-                    //{
-                    //    PlayerPosition[i] = "Player4";
-                    //    break;
-                    //}
+                    else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer3 == "hero1")
+                    {
+                        PlayerPosition[i] = "Player3";
+                        break;
+                    }
+                    else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer4 == "hero1")
+                    {
+                        PlayerPosition[i] = "Player4";
+                        break;
+                    }
                     else
                     {
 
@@ -110,16 +107,16 @@ public class AfterBattleHUD : MonoBehaviour
                         PlayerPosition[i] = "Player2";
                         break;
                     }
-                    //else if(refSceneManager.GetComponent<SceneMaganer>().refPlayer3 == "hero2")
-                    //{
-                    //    PlayerPosition[i] = "Player3";
-                    //    break;
-                    //}
-                    //else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer4 == "hero2")
-                    //{
-                    //    PlayerPosition[i] = "Player4";
-                    //    break;
-                    //}
+                    else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer3 == "hero2")
+                    {
+                        PlayerPosition[i] = "Player3";
+                        break;
+                    }
+                    else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer4 == "hero2")
+                    {
+                        PlayerPosition[i] = "Player4";
+                        break;
+                    }
                     else
                     {
 
@@ -148,16 +145,16 @@ public class AfterBattleHUD : MonoBehaviour
                         PlayerPosition[i] = "Player2";
                         break;
                     }
-                    //else if(refSceneManager.GetComponent<SceneMaganer>().refPlayer3 == "hero3")
-                    //{
-                    //    PlayerPosition[i] = "Player3";
-                    //    break;
-                    //}
-                    //else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer4 == "hero3")
-                    //{
-                    //    PlayerPosition[i] = "Player4";
-                    //    break;
-                    //}
+                    else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer3 == "hero3")
+                    {
+                        PlayerPosition[i] = "Player3";
+                        break;
+                    }
+                    else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer4 == "hero3")
+                    {
+                        PlayerPosition[i] = "Player4";
+                        break;
+                    }
                     else
                     {
 
@@ -186,16 +183,16 @@ public class AfterBattleHUD : MonoBehaviour
                         PlayerPosition[i] = "Player2";
                         break;
                     }
-                    //else if(refSceneManager.GetComponent<SceneMaganer>().refPlayer3 == "hero4")
-                    //{
-                    //    PlayerPosition[i] = "Player3";
-                    //    break;
-                    //}
-                    //else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer4 == "hero4")
-                    //{
-                    //    PlayerPosition[i] = "Player4";
-                    //    break;
-                    //}
+                    else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer3 == "hero4")
+                    {
+                        PlayerPosition[i] = "Player3";
+                        break;
+                    }
+                    else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer4 == "hero4")
+                    {
+                        PlayerPosition[i] = "Player4";
+                        break;
+                    }
                     else
                     {
 
@@ -222,15 +219,15 @@ public class AfterBattleHUD : MonoBehaviour
             {
                 if (j == 0)
                 {
-                    matrixHUD[i, j] = GameObject.Find((i + 1) + "IconMedal");
+                    matrixHUD[i, j] = scorePanel.transform.Find((i + 1) + "IconMedal").gameObject;
                 }
                 else if (j == 1)
                 {
-                    matrixHUD[i, j] = GameObject.Find((i + 1) + "PlacePic");
+                    matrixHUD[i, j] = scorePanel.transform.Find((i + 1) + "PlacePic").gameObject;
                 }
                 else
                 {
-                    matrixHUD[i, j] = GameObject.Find((i + 1) + "PlaceTexts");
+                    matrixHUD[i, j] = scorePanel.transform.Find((i + 1) + "PlaceTexts").gameObject;
                 }
             }
         }
