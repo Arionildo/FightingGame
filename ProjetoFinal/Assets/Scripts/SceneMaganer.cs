@@ -10,7 +10,7 @@ public class SceneMaganer : MonoBehaviour
     public GameObject CharSelect, AfterCharSelect, PauseTextScene1, MechLogo;
     public Slider volumeSlider;
     public AudioSource audioData;
-    public string refPlayer1, refPlayer2, refPlayer3, refPlayer4;
+    public static string refPlayer1, refPlayer2, refPlayer3, refPlayer4;
     public static string[] playerSelections = new string[4];
     public bool gameIsPaused = false, audioEnabled = true;
 

@@ -1490,6 +1490,11 @@ Prefab:
       propertyPath: commandText
       value: 
       objectReference: {fileID: 707864261}
+    - target: {fileID: 114590761709152572, guid: 737ddb58b9fb0814d911d43cac3840b0,
+        type: 2}
+      propertyPath: maxLife
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 737ddb58b9fb0814d911d43cac3840b0, type: 2}
   m_IsPrefabParent: 0
@@ -1900,7 +1905,7 @@ Prefab:
     - target: {fileID: 114551734448613710, guid: cedcf8b64fec8504bac47c636ce74200,
         type: 2}
       propertyPath: maxLife
-      value: 0
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cedcf8b64fec8504bac47c636ce74200, type: 2}
@@ -2250,7 +2255,6 @@ MonoBehaviour:
   hero3: {fileID: 0}
   hero4: {fileID: 0}
   ActivePlayers: 2
-  refSceneManager: {fileID: 0}
   PlayerPosition:
   - 
   - 
@@ -3393,10 +3397,6 @@ MonoBehaviour:
   MechLogo: {fileID: 0}
   volumeSlider: {fileID: 7085}
   audioData: {fileID: 0}
-  refPlayer1: 
-  refPlayer2: 
-  refPlayer3: 
-  refPlayer4: 
   gameIsPaused: 0
   audioEnabled: 0
 --- !u!1 &1123456054

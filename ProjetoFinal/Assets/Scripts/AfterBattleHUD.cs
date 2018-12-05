@@ -5,12 +5,10 @@ using UnityEngine.UI;
 
 public class AfterBattleHUD : MonoBehaviour
 {
+    private float hero1HP, hero2HP, hero3HP, hero4HP;
+    private GameObject[,] matrixHUD = new GameObject[4, 3];
     public GameObject hero1, hero2, hero3, hero4;
-    bool placedHero1 = false, placedHero2 = false, placedHero3 = false, placedHero4 = false;
-    float hero1HP, hero2HP, hero3HP, hero4HP;
-    GameObject[,] matrixHUD = new GameObject[4, 3];
     public int ActivePlayers = 2;
-    public GameObject refSceneManager;
     public string[] PlayerPosition = new string[4];
     public GameObject scorePanel;
 
@@ -28,7 +26,8 @@ public class AfterBattleHUD : MonoBehaviour
 
     void checkCharacterStatus()
     {
-        if (hero1.gameObject.GetComponent<Character>().currentLife <= 0 || hero2.gameObject.GetComponent<Character>().currentLife <= 0)
+        instantiateHeroHPs();
+        if (hero1HP <= 0 || hero2HP <= 0)
         {
             scorePanel.gameObject.SetActive(true);
             matrixActivator(ActivePlayers);
@@ -41,6 +40,7 @@ public class AfterBattleHUD : MonoBehaviour
         onStartPlayerPosition();
         scorePanel.gameObject.SetActive(false);
         matrixFiller();
+        instantiateHeroHPs();
     }
 
     void onStartPlayerPosition()
@@ -53,157 +53,72 @@ public class AfterBattleHUD : MonoBehaviour
 
     void updatePlayerPosition()
     {
-        if (hero1HP <= 0 && !placedHero1)
+        if (hero1HP <= 0)
         {
-            for (int i = PlayerPosition.Length-1; i < -1; i--)
+            for (int i = 0; i < PlayerPosition.Length; i++)
             {
-                if(PlayerPosition[i] == "-")
+                string player = "Player1";
+                if (PlayerPosition[i] == player)
                 {
-                    if (refSceneManager.GetComponent<SceneMaganer>().refPlayer1 == "hero1")
-                    {
-                        PlayerPosition[i] = "Player1";
-                        break;
-                    }
-                    else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer2 == "hero1")
-                    {
-                        PlayerPosition[i] = "Player2";
-                        break;
-                    }
-                    else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer3 == "hero1")
-                    {
-                        PlayerPosition[i] = "Player3";
-                        break;
-                    }
-                    else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer4 == "hero1")
-                    {
-                        PlayerPosition[i] = "Player4";
-                        break;
-                    }
-                    else
-                    {
-
-                    }
+                    break;
                 }
-                else
+                else if(PlayerPosition[i] == "-")
                 {
-
+                    PlayerPosition[i] = player;
+                    break;
                 }
             }
-            placedHero1 = true;
         }
-        else if (hero2HP <= 0 && !placedHero2)
+
+        if (hero2HP <= 0)
         {
-            for (int i = PlayerPosition.Length - 1; i < -1; i--)
+            for (int i = 0; i < PlayerPosition.Length; i++)
             {
-                if (PlayerPosition[i] == "-")
+                string player = "Player2";
+                if (PlayerPosition[i] == player)
                 {
-                    if (refSceneManager.GetComponent<SceneMaganer>().refPlayer1 == "hero2")
-                    {
-                        PlayerPosition[i] = "Player1";
-                        break;
-                    }
-                    else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer2 == "hero2")
-                    {
-                        PlayerPosition[i] = "Player2";
-                        break;
-                    }
-                    else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer3 == "hero2")
-                    {
-                        PlayerPosition[i] = "Player3";
-                        break;
-                    }
-                    else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer4 == "hero2")
-                    {
-                        PlayerPosition[i] = "Player4";
-                        break;
-                    }
-                    else
-                    {
-
-                    }
+                    break;
                 }
-                else
+                else if (PlayerPosition[i] == "-")
                 {
-
+                    PlayerPosition[i] = player;
+                    break;
                 }
             }
-            placedHero2 = true;
         }
-        else if (hero3HP <= 0 && !placedHero3)
+
+        if (hero3HP <= 0)
         {
-            for (int i = PlayerPosition.Length - 1; i < -1; i--)
+            for (int i = 0; i < PlayerPosition.Length; i++)
             {
-                if (PlayerPosition[i] == "-")
+                string player = "Player3";
+                if (PlayerPosition[i] == player)
                 {
-                    if (refSceneManager.GetComponent<SceneMaganer>().refPlayer1 == "hero3")
-                    {
-                        PlayerPosition[i] = "Player1";
-                        break;
-                    }
-                    else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer2 == "hero3")
-                    {
-                        PlayerPosition[i] = "Player2";
-                        break;
-                    }
-                    else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer3 == "hero3")
-                    {
-                        PlayerPosition[i] = "Player3";
-                        break;
-                    }
-                    else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer4 == "hero3")
-                    {
-                        PlayerPosition[i] = "Player4";
-                        break;
-                    }
-                    else
-                    {
-
-                    }
+                    break;
                 }
-                else
+                else if (PlayerPosition[i] == "-")
                 {
-
+                    PlayerPosition[i] = player;
+                    break;
                 }
             }
-            placedHero3 = true;
         }
-        else if (hero4HP <= 0 && !placedHero4)
+
+        if (hero4HP <= 0)
         {
-            for (int i = PlayerPosition.Length - 1; i < -1; i--)
+            for (int i = 0; i < PlayerPosition.Length; i++)
             {
-                if (PlayerPosition[i] == "-")
+                string player = "Player4";
+                if (PlayerPosition[i] == player)
                 {
-                    if (refSceneManager.GetComponent<SceneMaganer>().refPlayer1 == "hero4")
-                    {
-                        PlayerPosition[i] = "Player1";
-                        break;
-                    }
-                    else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer2 == "hero4")
-                    {
-                        PlayerPosition[i] = "Player2";
-                        break;
-                    }
-                    else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer3 == "hero4")
-                    {
-                        PlayerPosition[i] = "Player3";
-                        break;
-                    }
-                    else if (refSceneManager.GetComponent<SceneMaganer>().refPlayer4 == "hero4")
-                    {
-                        PlayerPosition[i] = "Player4";
-                        break;
-                    }
-                    else
-                    {
-
-                    }
+                    break;
                 }
-                else
+                else if (PlayerPosition[i] == "-")
                 {
-
+                    PlayerPosition[i] = player;
+                    break;
                 }
             }
-            placedHero4 = true;
         }
         for (int i = 0; i < PlayerPosition.Length; i++)
         {
@@ -256,38 +171,12 @@ public class AfterBattleHUD : MonoBehaviour
                 {
                     if (j == 0 || j == 1)
                     {
-                        matrixHUD[i, j].gameObject.SetActive(false);
+                        matrixHUD[i, j].gameObject.SetActive(true);
                     }
                     if (j == 1)
                     {
-                        if(PlayerPosition[i] == "Player1")
-                        {
-                            if (refSceneManager.GetComponent<SceneMaganer>().refPlayer1 == "Hero1")
-                            {
-                                //carrega imagem do robo 1
-                            }
-                            else
-                            {
-                                //carrega imagem do robo 2
-                            }
-
-                        }
-                        else if (PlayerPosition[i] == "Player2")
-                        {
-                            if (refSceneManager.GetComponent<SceneMaganer>().refPlayer2 == "Hero1")
-                            {
-                                //carrega imagem do robo 1
-                            }
-                            else
-                            {
-                                //carrega imagem do robo 2
-                            }
-                        }
-                        else
-                        {
-
-                        }
-                        matrixHUD[i, j].gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Teste");
+                        string playerIndex = PlayerPosition[i].Substring(PlayerPosition[i].Length - 1);
+                        matrixHUD[i, j].gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("hero0"+playerIndex+"_icon");
                     }
                     if (j == 2)
                     {
@@ -295,23 +184,11 @@ public class AfterBattleHUD : MonoBehaviour
                         {
                             matrixHUD[i, j].gameObject.GetComponent<Text>().text = PlayerPosition[i];
                         }
-                        matrixHUD[i, j].gameObject.GetComponent<Text>().text = "";
                     }
                 }
             else if (playersCount < i + 1)
             {
-                if (j == 0 || j == 1)
-                {
-                    matrixHUD[i, j].gameObject.SetActive(false);
-                }
-                if (j == 2)
-                {
-                    matrixHUD[i, j].gameObject.GetComponent<Text>().text = "";
-                }
-            }
-            else
-            {
-
+                matrixHUD[i, j].gameObject.SetActive(false);
             }
             }
         }
