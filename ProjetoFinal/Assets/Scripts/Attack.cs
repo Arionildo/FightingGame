@@ -143,10 +143,12 @@ public class Attack : MonoBehaviour
             if (Input.GetButtonDown(defence) && executor.cdShield == 0)
             {
                 executor.isDefending = true;
+                executor.shieldobject.SetActive(true);
             }
             else if (Input.GetButtonUp(defence))
             {
                 executor.isDefending = false;
+                executor.shieldobject.SetActive(false);
             }
         }
     }
