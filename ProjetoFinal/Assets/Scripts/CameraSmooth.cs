@@ -11,13 +11,13 @@ public class CameraSmooth : MonoBehaviour {
     public float smooth = .5f;
     public Vector3 offset;
     public Vector3 velocity;
-    public new Camera camera;
+    public Camera thisCamera;
     public float minZoom = 40f;
     public float maxZoom = 10f;
     public float zoomLimiter = 50f;
 
     private void Start() {
-        camera = GetComponent<Camera>();
+        thisCamera = GetComponent<Camera>();
         targets = new List<Transform>();
         players = GameObject.FindGameObjectsWithTag("Player");
         if (players != null)
@@ -36,7 +36,7 @@ public class CameraSmooth : MonoBehaviour {
     private void Zoom()
     {
         float newZoom = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistance() / zoomLimiter);
-        camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, newZoom, Time.deltaTime);
+        thisCamera.fieldOfView = Mathf.Lerp(thisCamera.fieldOfView, newZoom, Time.deltaTime);
     }
 
     private void Move()

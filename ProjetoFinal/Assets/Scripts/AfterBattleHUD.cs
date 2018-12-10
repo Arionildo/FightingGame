@@ -33,6 +33,10 @@ public class AfterBattleHUD : MonoBehaviour
             matrixActivator(ActivePlayers);
             updatePlayerPosition();
         }
+        else
+        {
+            scorePanel.gameObject.SetActive(false);
+        }
     }
 
     void startFunctions()
@@ -152,8 +156,8 @@ public class AfterBattleHUD : MonoBehaviour
     {
         hero1HP = hero1.gameObject.GetComponent<Character>().currentLife;
         hero2HP = hero2.gameObject.GetComponent<Character>().currentLife;
-        //hero3HP = hero3.gameObject.GetComponent<Character>().currentLife;
-        //hero4HP = hero4.gameObject.GetComponent<Character>().currentLife;
+        hero3HP = 0;// hero3.gameObject.GetComponent<Character>().currentLife;
+        hero4HP = 0;// hero4.gameObject.GetComponent<Character>().currentLife;
     }
 
     void lastStandingCheck(int playersCount)
