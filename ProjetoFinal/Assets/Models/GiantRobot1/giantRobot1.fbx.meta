@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: 40300aaf54f87c0449059038eb765b85
-timeCreated: 1538430656
-licenseType: Pro
+guid: 308914c7d5f195e45aac875b9bf29b09
+timeCreated: 1544410570
+licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -22,48 +22,56 @@ ModelImporter:
     100028: mixamorig:LeftHandMiddle2
     100030: mixamorig:LeftHandMiddle3
     100032: mixamorig:LeftHandMiddle4
-    100034: mixamorig:LeftHandRing1
-    100036: mixamorig:LeftHandRing2
-    100038: mixamorig:LeftHandRing3
-    100040: mixamorig:LeftHandRing4
-    100042: mixamorig:LeftHandThumb1
-    100044: mixamorig:LeftHandThumb2
-    100046: mixamorig:LeftHandThumb3
-    100048: mixamorig:LeftHandThumb4
-    100050: mixamorig:LeftLeg
-    100052: mixamorig:LeftShoulder
-    100054: mixamorig:LeftToe_End
-    100056: mixamorig:LeftToeBase
-    100058: mixamorig:LeftUpLeg
-    100060: mixamorig:Neck
-    100062: mixamorig:RightArm
-    100064: mixamorig:RightFoot
-    100066: mixamorig:RightForeArm
-    100068: mixamorig:RightHand
-    100070: mixamorig:RightHandIndex1
-    100072: mixamorig:RightHandIndex2
-    100074: mixamorig:RightHandIndex3
-    100076: mixamorig:RightHandIndex4
-    100078: mixamorig:RightHandMiddle1
-    100080: mixamorig:RightHandMiddle2
-    100082: mixamorig:RightHandMiddle3
-    100084: mixamorig:RightHandMiddle4
-    100086: mixamorig:RightHandRing1
-    100088: mixamorig:RightHandRing2
-    100090: mixamorig:RightHandRing3
-    100092: mixamorig:RightHandRing4
-    100094: mixamorig:RightHandThumb1
-    100096: mixamorig:RightHandThumb2
-    100098: mixamorig:RightHandThumb3
-    100100: mixamorig:RightHandThumb4
-    100102: mixamorig:RightLeg
-    100104: mixamorig:RightShoulder
-    100106: mixamorig:RightToe_End
-    100108: mixamorig:RightToeBase
-    100110: mixamorig:RightUpLeg
-    100112: mixamorig:Spine
-    100114: mixamorig:Spine1
-    100116: mixamorig:Spine2
+    100034: mixamorig:LeftHandPinky1
+    100036: mixamorig:LeftHandPinky2
+    100038: mixamorig:LeftHandPinky3
+    100040: mixamorig:LeftHandPinky4
+    100042: mixamorig:LeftHandRing1
+    100044: mixamorig:LeftHandRing2
+    100046: mixamorig:LeftHandRing3
+    100048: mixamorig:LeftHandRing4
+    100050: mixamorig:LeftHandThumb1
+    100052: mixamorig:LeftHandThumb2
+    100054: mixamorig:LeftHandThumb3
+    100056: mixamorig:LeftHandThumb4
+    100058: mixamorig:LeftLeg
+    100060: mixamorig:LeftShoulder
+    100062: mixamorig:LeftToe_End
+    100064: mixamorig:LeftToeBase
+    100066: mixamorig:LeftUpLeg
+    100068: mixamorig:Neck
+    100070: mixamorig:RightArm
+    100072: mixamorig:RightFoot
+    100074: mixamorig:RightForeArm
+    100076: mixamorig:RightHand
+    100078: mixamorig:RightHandIndex1
+    100080: mixamorig:RightHandIndex2
+    100082: mixamorig:RightHandIndex3
+    100084: mixamorig:RightHandIndex4
+    100086: mixamorig:RightHandMiddle1
+    100088: mixamorig:RightHandMiddle2
+    100090: mixamorig:RightHandMiddle3
+    100092: mixamorig:RightHandMiddle4
+    100094: mixamorig:RightHandPinky1
+    100096: mixamorig:RightHandPinky2
+    100098: mixamorig:RightHandPinky3
+    100100: mixamorig:RightHandPinky4
+    100102: mixamorig:RightHandRing1
+    100104: mixamorig:RightHandRing2
+    100106: mixamorig:RightHandRing3
+    100108: mixamorig:RightHandRing4
+    100110: mixamorig:RightHandThumb1
+    100112: mixamorig:RightHandThumb2
+    100114: mixamorig:RightHandThumb3
+    100116: mixamorig:RightHandThumb4
+    100118: mixamorig:RightLeg
+    100120: mixamorig:RightShoulder
+    100122: mixamorig:RightToe_End
+    100124: mixamorig:RightToeBase
+    100126: mixamorig:RightUpLeg
+    100128: mixamorig:Spine
+    100130: mixamorig:Spine1
+    100132: mixamorig:Spine2
     400000: Cube.001
     400002: //RootNode
     400004: mixamorig:Head
@@ -81,48 +89,56 @@ ModelImporter:
     400028: mixamorig:LeftHandMiddle2
     400030: mixamorig:LeftHandMiddle3
     400032: mixamorig:LeftHandMiddle4
-    400034: mixamorig:LeftHandRing1
-    400036: mixamorig:LeftHandRing2
-    400038: mixamorig:LeftHandRing3
-    400040: mixamorig:LeftHandRing4
-    400042: mixamorig:LeftHandThumb1
-    400044: mixamorig:LeftHandThumb2
-    400046: mixamorig:LeftHandThumb3
-    400048: mixamorig:LeftHandThumb4
-    400050: mixamorig:LeftLeg
-    400052: mixamorig:LeftShoulder
-    400054: mixamorig:LeftToe_End
-    400056: mixamorig:LeftToeBase
-    400058: mixamorig:LeftUpLeg
-    400060: mixamorig:Neck
-    400062: mixamorig:RightArm
-    400064: mixamorig:RightFoot
-    400066: mixamorig:RightForeArm
-    400068: mixamorig:RightHand
-    400070: mixamorig:RightHandIndex1
-    400072: mixamorig:RightHandIndex2
-    400074: mixamorig:RightHandIndex3
-    400076: mixamorig:RightHandIndex4
-    400078: mixamorig:RightHandMiddle1
-    400080: mixamorig:RightHandMiddle2
-    400082: mixamorig:RightHandMiddle3
-    400084: mixamorig:RightHandMiddle4
-    400086: mixamorig:RightHandRing1
-    400088: mixamorig:RightHandRing2
-    400090: mixamorig:RightHandRing3
-    400092: mixamorig:RightHandRing4
-    400094: mixamorig:RightHandThumb1
-    400096: mixamorig:RightHandThumb2
-    400098: mixamorig:RightHandThumb3
-    400100: mixamorig:RightHandThumb4
-    400102: mixamorig:RightLeg
-    400104: mixamorig:RightShoulder
-    400106: mixamorig:RightToe_End
-    400108: mixamorig:RightToeBase
-    400110: mixamorig:RightUpLeg
-    400112: mixamorig:Spine
-    400114: mixamorig:Spine1
-    400116: mixamorig:Spine2
+    400034: mixamorig:LeftHandPinky1
+    400036: mixamorig:LeftHandPinky2
+    400038: mixamorig:LeftHandPinky3
+    400040: mixamorig:LeftHandPinky4
+    400042: mixamorig:LeftHandRing1
+    400044: mixamorig:LeftHandRing2
+    400046: mixamorig:LeftHandRing3
+    400048: mixamorig:LeftHandRing4
+    400050: mixamorig:LeftHandThumb1
+    400052: mixamorig:LeftHandThumb2
+    400054: mixamorig:LeftHandThumb3
+    400056: mixamorig:LeftHandThumb4
+    400058: mixamorig:LeftLeg
+    400060: mixamorig:LeftShoulder
+    400062: mixamorig:LeftToe_End
+    400064: mixamorig:LeftToeBase
+    400066: mixamorig:LeftUpLeg
+    400068: mixamorig:Neck
+    400070: mixamorig:RightArm
+    400072: mixamorig:RightFoot
+    400074: mixamorig:RightForeArm
+    400076: mixamorig:RightHand
+    400078: mixamorig:RightHandIndex1
+    400080: mixamorig:RightHandIndex2
+    400082: mixamorig:RightHandIndex3
+    400084: mixamorig:RightHandIndex4
+    400086: mixamorig:RightHandMiddle1
+    400088: mixamorig:RightHandMiddle2
+    400090: mixamorig:RightHandMiddle3
+    400092: mixamorig:RightHandMiddle4
+    400094: mixamorig:RightHandPinky1
+    400096: mixamorig:RightHandPinky2
+    400098: mixamorig:RightHandPinky3
+    400100: mixamorig:RightHandPinky4
+    400102: mixamorig:RightHandRing1
+    400104: mixamorig:RightHandRing2
+    400106: mixamorig:RightHandRing3
+    400108: mixamorig:RightHandRing4
+    400110: mixamorig:RightHandThumb1
+    400112: mixamorig:RightHandThumb2
+    400114: mixamorig:RightHandThumb3
+    400116: mixamorig:RightHandThumb4
+    400118: mixamorig:RightLeg
+    400120: mixamorig:RightShoulder
+    400122: mixamorig:RightToe_End
+    400124: mixamorig:RightToeBase
+    400126: mixamorig:RightUpLeg
+    400128: mixamorig:Spine
+    400130: mixamorig:Spine1
+    400132: mixamorig:Spine2
     2100000: Material
     4300000: Cube.001
     7400000: mixamo.com
@@ -147,42 +163,14 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: mixamo.com
-      takeName: mixamo.com
-      firstFrame: 0
-      lastFrame: 1
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -227,7 +215,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
