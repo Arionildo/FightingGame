@@ -1,11 +1,19 @@
 fileFormatVersion: 2
 guid: 26c86bdebb4b4714fbce5a1e7ebcab41
-timeCreated: 1526170570
-licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - fillBar: {instanceID: 0}
+  - lifeText: {instanceID: 0}
+  - barSlider: {instanceID: 0}
+  - barEnergySlider: {instanceID: 0}
+  - characterColor: {instanceID: 0}
+  - deadColor: {instanceID: 0}
+  - weaponPlaceholder: {instanceID: 0}
+  - shield: {fileID: 1882141471977712, guid: 9b3a5ec71ca4ad54dae98b4628e3f757, type: 2}
+  - oilSplatter: {fileID: 1456476595843892, guid: a310f24d3a816a64e909fec64f3ad0ee,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

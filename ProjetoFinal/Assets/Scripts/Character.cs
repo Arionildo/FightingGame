@@ -28,12 +28,15 @@ public class Character : MonoBehaviour {
     Color downShieldColor = new Color32(145, 145, 145, 255);
     public bool deactivatedShield = false;
 
+    public GameObject shieldobject;
     public GameObject oilSplatter;
 
     private void Start()
     {
         cc = GetComponent<CharacterController>();
         currentLife = maxLife;
+        shieldobject = Instantiate(shieldobject, transform) as GameObject;
+        shieldobject.SetActive(false);
     }
 
     private void Update()
@@ -158,6 +161,9 @@ public class Character : MonoBehaviour {
 
     private void Defend()
     {
+        shieldobject.transform.position = new Vector3(transform.position.x, transform.position.y +5, transform.position.z);
+
+
         if (cdShield <= 0 && energy >=100)
         {
             deactivatedShield = false;
@@ -168,6 +174,7 @@ public class Character : MonoBehaviour {
             cdShield = 5;
             energy = 1;
             isDefending = false;
+            shieldobject.SetActive(false);
         }
         if (energy >= 0)
         {
