@@ -142,7 +142,7 @@ public class SceneMaganer : MonoBehaviour
         else if (ButtonFunc == "Hero1" || ButtonFunc == "Hero2" || ButtonFunc == "Hero3" || ButtonFunc == "Hero4")
         {
             buttonReturn.gameObject.SetActive(false);
-            for (int i = 0; i < playerSelections.Length; i++)
+            for (int i = 0; i < 2; i++)
             {
                 if (playerSelections[i] == "-")
                 {
@@ -176,14 +176,16 @@ public class SceneMaganer : MonoBehaviour
                     }
                 }
             }
+            playerSelections[2] = "NoPlayer";
+            playerSelections[3] = "NoPlayer";
             refPlayer1 = playerSelections[0];
             p1Text.text = "P1 "+ refPlayer1;
             refPlayer2 = playerSelections[1];
             p2Text.text = "P2 " + refPlayer2;
             refPlayer3 = playerSelections[2];
-            p3Text.text = "P3 " + refPlayer3;
-            refPlayer4 = playerSelections[3];
-            p4Text.text = "P4 " + refPlayer4;
+            //p3Text.text = "P3 " + refPlayer3;
+            //refPlayer4 = playerSelections[3];
+            //p4Text.text = "P4 " + refPlayer4;
             if (playerSelections[0] != "-" && playerSelections[1] != "-" && playerSelections[2] != "-" && playerSelections[3] != "-")
             {
                 CharSelect.gameObject.SetActive(false);

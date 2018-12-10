@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
+//using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,7 +33,7 @@ public class Attack : MonoBehaviour
         animator = GetComponent<Animator>();
         currentCombo = new Queue();
         executor = GetComponent<Character>();
-        SetTextAttackCommand();
+        //SetTextAttackCommand();
         cooldownSkillB = skillB.GetComponent<Weapon>().cooldown;
     }
 
@@ -48,30 +48,30 @@ public class Attack : MonoBehaviour
         UpdateKeyTimer();
     }
 
-    private void SetTextAttackCommand()
-    {
-        SerializedObject inputManager = new SerializedObject(AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/InputManager.asset")[0]);
-        SerializedProperty axisArray = inputManager.FindProperty("m_Axes");
-        string commandTextAttackA = null;
-        string commandTextAttackB = null;
-        string commandTextDefence = null;
-        for (int i = 0; i < axisArray.arraySize; ++i)
-        {
-            var axis = axisArray.GetArrayElementAtIndex(i);
-            var axisName = axis.FindPropertyRelative("m_Name").stringValue;
+    //private void SetTextAttackCommand()
+    //{
+    //    SerializedObject inputManager = new SerializedObject(AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/InputManager.asset")[0]);
+    //    SerializedProperty axisArray = inputManager.FindProperty("m_Axes");
+    //    string commandTextAttackA = null;
+    //    string commandTextAttackB = null;
+    //    string commandTextDefence = null;
+    //    for (int i = 0; i < axisArray.arraySize; ++i)
+    //    {
+    //        var axis = axisArray.GetArrayElementAtIndex(i);
+    //        var axisName = axis.FindPropertyRelative("m_Name").stringValue;
 
-            if (axisName.Equals(attackA))
-                commandTextAttackA = axis.FindPropertyRelative("positiveButton").stringValue;
-            else if (axisName.Equals(attackB))
-                commandTextAttackB = axis.FindPropertyRelative("positiveButton").stringValue;
-            else if (axisName.Equals(defence))
-                commandTextDefence = axis.FindPropertyRelative("positiveButton").stringValue;
-        }
+    //        if (axisName.Equals(attackA))
+    //            commandTextAttackA = axis.FindPropertyRelative("positiveButton").stringValue;
+    //        else if (axisName.Equals(attackB))
+    //            commandTextAttackB = axis.FindPropertyRelative("positiveButton").stringValue;
+    //        else if (axisName.Equals(defence))
+    //            commandTextDefence = axis.FindPropertyRelative("positiveButton").stringValue;
+    //    }
 
-        commandText.text = commandTextAttackA + " -> AttackA\n" +
-                            commandTextAttackB + " -> AttackB\n" +
-                            commandTextDefence + " -> Guard";
-    }
+    //    commandText.text = commandTextAttackA + " -> AttackA\n" +
+    //                        commandTextAttackB + " -> AttackB\n" +
+    //                        commandTextDefence + " -> Guard";
+    //}
 
     private void UpdateKeyTimer()
     {
